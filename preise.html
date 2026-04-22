@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Preise – MP Webdesign</title>
+<meta name="description" content="Transparente Preise: Website ab € 200 einmalig, danach € 35/Monat für Pflege & Änderungen."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='13' fill='%23f0f0ee' letter-spacing='-1'%3EMP%3C/text%3E%3Ccircle cx='25' cy='22' r='4' fill='%23c8f04a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{padding-top:64px;background:#0a0a0a;color:#f0f0ee;font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;max-width:100vw}
+:root{--bg:#0a0a0a;--s1:#111;--s2:#181818;--s3:#1e1e1e;--b:rgba(255,255,255,.07);--b2:rgba(255,255,255,.13);--text:#f0f0ee;--muted:#888880;--accent:#c8f04a;--accent2:#7df9c0}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,10,10,.97);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;
+  letter-spacing:-.03em;color:#f0f0ee;text-decoration:none}
+.nav-logo span{color:#c8f04a}
+/* nav-links HIDDEN by default, toggled by JS */
+.nav-links{list-style:none;display:none;position:absolute;top:64px;left:0;right:0;
+  flex-direction:column;background:#0d0d0d;border-bottom:1px solid rgba(255,255,255,.08);
+  padding:1rem 0;gap:0;z-index:499}
+.nav-links.open{display:flex}
+.nav-links li{width:100%}
+.nav-links a{color:#888880;text-decoration:none;font-size:.95rem;font-weight:400;
+  display:block;padding:.85rem 2rem;transition:color .2s,background .2s;border-left:3px solid transparent}
+.nav-links a:hover{color:#f0f0ee;background:rgba(255,255,255,.04);border-left-color:#c8f04a}
+.nav-links a.active{color:#f0f0ee;border-left-color:#c8f04a}
+.nav-cta{background:#c8f04a;color:#0a0a0a;padding:.48rem 1.2rem;border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;
+  border:none;cursor:pointer;display:inline-flex;align-items:center;
+  transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,240,74,.3)}
+/* BURGER - always visible */
+.burger{background:none;border:none;cursor:pointer;padding:8px;
+  display:flex;flex-direction:column;gap:5px;z-index:600;margin-left:1rem}
+.burger span{display:block;width:24px;height:2px;background:#f0f0ee;
+  transition:all .3s ease;transform-origin:center;border-radius:2px}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* NAV WRAPPER right side */
+.nav-right{display:flex;align-items:center;gap:.75rem}
+
+/* PAGE HERO */
+.ph{padding:8rem 2.5rem 5rem;border-bottom:1px solid var(--b);position:relative;overflow:hidden;isolation:isolate}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(to bottom,transparent 55%,#0a0a0a 100%),repeating-linear-gradient(0deg,transparent,transparent 79px,var(--b) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,var(--b) 80px);background-size:100% 100%,80px 80px,80px 80px;z-index:0;pointer-events:none}
+.glow-r{pointer-events:none;position:absolute;top:-10%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(200,240,74,.1) 0%,transparent 65%);pointer-events:none}
+.ph h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,6vw,6rem);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:1.5rem}
+.ph h1 span{color:var(--accent)}
+.ph p{max-width:520px;color:var(--muted);font-size:1rem;line-height:1.8;font-weight:300}
+.eye{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+.eye::before{content:'';width:24px;height:1px;background:var(--muted)}
+.eye span{color:var(--muted);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
+
+/* BUTTONS */
+.btn-f{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 2.25rem;border-radius:100px;background:var(--accent);color:#0a0a0a;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:-.01em;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;width:100%}
+.btn-f:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(200,240,74,.3)}
+.btn-o{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 2.25rem;border-radius:100px;background:none;color:var(--text);border:1px solid var(--b2);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .2s;width:100%}
+.btn-o:hover{border-color:rgba(255,255,255,.3);background:var(--s1)}
+.btn-o.sm{padding:.55rem 1.5rem;font-size:.82rem;width:auto}
+
+/* PRICING CARDS */
+.pricing-hero{padding:5rem 2.5rem 6rem;max-width:1100px;margin:0 auto}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:5rem;margin-top:1rem}
+
+.plan{background:var(--s1);border:1px solid var(--b);padding:0;overflow:visible;position:relative;width:100%;box-sizing:border-box;transition:border-color .3s}
+.plan:hover{border-color:rgba(255,255,255,.15)}
+.plan.featured{border-color:var(--accent);background:rgba(200,240,74,.04)}
+.plan.featured:hover{border-color:var(--accent)}
+
+.plan-badge{position:absolute;top:0;right:1rem;background:var(--accent);color:#0a0a0a;font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .85rem;border-radius:0 0 8px 8px}
+
+.plan-top{padding:2.5rem 2.5rem 0}
+.plan-type{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1rem}
+.plan.featured .plan-type{color:var(--accent)}
+.plan-name{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.35rem}
+.plan-tagline{color:var(--muted);font-size:.88rem;line-height:1.6;margin-bottom:2rem;font-weight:300}
+
+.plan-price-block{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.4rem}
+.plan-price{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;letter-spacing:-.05em;line-height:1}
+.plan-currency{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:var(--muted);align-self:flex-start;margin-top:.5rem}
+.plan-period{color:var(--muted);font-size:.85rem;font-weight:300}
+.plan-note{color:var(--muted);font-size:.78rem;margin-bottom:2rem;font-weight:300}
+
+.plan-divider{height:1px;background:var(--b);margin:0 2.5rem}
+
+.plan-features{padding:2rem 2.5rem;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
+.plan-feat{display:flex;align-items:flex-start;gap:.85rem;font-size:.875rem;color:var(--text);font-weight:300;line-height:1.5}
+.plan-feat::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:.05em;font-size:.95rem}
+.plan-feat.dim{color:var(--muted)}
+.plan-feat.dim::before{content:'–';color:#333;font-weight:400}
+
+.plan-cta{padding:0 2.5rem 2.5rem}
+
+/* STRIPE INFO BOX */
+.stripe-info{background:var(--s2);border:1px solid var(--b);border-left:3px solid var(--accent);padding:1.75rem 2rem;margin-bottom:3rem;display:flex;align-items:flex-start;gap:1.25rem}
+.stripe-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
+.stripe-info h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.stripe-info p{color:var(--muted);font-size:.85rem;line-height:1.7;font-weight:300}
+
+/* COMPARISON TABLE */
+.compare{border:1px solid var(--b);overflow:hidden;margin-bottom:5rem}
+.compare-head{display:grid;grid-template-columns:1fr 160px 200px;background:var(--s2)}
+.chc{padding:1.2rem 1.5rem;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;text-align:center;border-left:1px solid var(--b);color:var(--text)}
+.chc:first-child{text-align:left;border-left:none;color:var(--muted);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:300}
+.chc.hi{color:var(--accent)}
+.crow{display:grid;grid-template-columns:1fr 160px 200px;border-top:1px solid var(--b);transition:background .2s}
+.crow:hover{background:var(--s2)}
+.cc{padding:.9rem 1.5rem;font-size:.84rem;color:var(--muted);font-weight:300;display:flex;align-items:center}
+.cv{padding:.9rem 1rem;text-align:center;display:flex;align-items:center;justify-content:center;border-left:1px solid var(--b);font-size:.82rem;color:var(--muted)}
+.cv.yes{color:var(--accent);font-size:1.05rem;font-weight:700}
+.cv.no{color:#222}
+
+/* FAQ */
+.faq{margin-bottom:5rem}
+.faq h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:3rem}
+.faq h2 span{color:var(--accent)}
+.faq-item{border-bottom:1px solid var(--b);overflow:hidden}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 0;text-align:left;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);gap:1rem;transition:color .2s}
+.faq-q:hover{color:var(--accent)}
+.faq-arrow{font-size:.9rem;transition:transform .3s;flex-shrink:0;color:var(--muted)}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-item.open .faq-a{max-height:400px;padding-bottom:1.25rem}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:1.5rem}
+.faq-a p{color:var(--muted);font-size:.9rem;line-height:1.8;font-weight:300}
+
+/* CTA STRIP */
+.cta-strip{background:var(--s1);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:5rem 2.5rem;text-align:center}
+.cta-strip h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem}
+.cta-strip h2 span{color:var(--accent)}
+.cta-strip p{color:var(--muted);font-size:.93rem;line-height:1.8;font-weight:300;max-width:480px;margin:0 auto 2.5rem}
+
+/* FOOTER */
+footer{border-top:1px solid var(--b)}
+.fi{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4rem;padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--b)}
+.fb p{color:var(--muted);font-size:.85rem;line-height:1.75;font-weight:300;margin-top:.85rem}
+.fn{display:flex;flex-direction:column;gap:.6rem}
+.fn a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s}
+.fn a:hover{color:var(--text)}
+.fs{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem;display:block}
+.fp{display:flex;flex-direction:column;gap:.6rem}
+.fp a{color:var(--muted);text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;transition:color .2s}
+.fp a:hover{color:var(--accent)}
+.fbot{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;box-sizing:border-box;width:100%}
+.fbot p,.fbot a{color:var(--muted);font-size:.76rem;text-decoration:none;transition:color .2s}
+.fbot a:hover{color:var(--text)}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rev.vis{opacity:1;transform:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+
+.compare-head,.crow{grid-template-columns:1fr 120px 140px}.fi{grid-template-columns:1fr 1fr}}
+.compare{overflow-x:auto}.compare-head,.crow{min-width:480px}.fi{grid-template-columns:1fr}.fbot{flex-direction:column;text-align:center}}
+
+
+
+/* ── FOOTER CENTERING ── */
+footer{border-top:1px solid rgba(255,255,255,.07);width:100%;box-sizing:border-box}
+.footer-wrap{max-width:1200px;margin:0 auto;width:100%}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;
+  padding:4rem 2.5rem 3rem;border-bottom:1px solid rgba(255,255,255,.07);
+  box-sizing:border-box;width:100%}
+.footer-bottom{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:.75rem;box-sizing:border-box;width:100%}
+.footer-bottom p,.footer-bottom a{color:#888880;font-size:.76rem;text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:#f0f0ee}
+@media(max-width:860px){
+  .footer-grid{grid-template-columns:1fr 1fr!important;gap:2rem!important;padding:2.5rem 1.25rem!important}
+  .footer-bottom{padding:1rem 1.25rem!important;flex-direction:column!important;text-align:center!important;gap:.5rem!important}
+  .footer-bottom div{justify-content:center!important}
+}
+@media(max-width:500px){
+  .footer-grid{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+<style id="mobileFix">
+/* ══════════════════════════════════════════
+   DEFINITIVE MOBILE FIX – alle Seiten
+   ══════════════════════════════════════════ */
+
+/* 1. Prevent ALL horizontal scroll */
+html { overflow-x: hidden !important; }
+body { overflow-x: hidden !important; max-width: 100vw !important; }
+
+/* 2. Nav always fixed at top */
+nav { position: fixed !important; top: 0 !important; left: 0 !important;
+      right: 0 !important; z-index: 500 !important; }
+
+/* 3. Cookie banner never clipped */
+#cookieBanner {
+  position: fixed !important; z-index: 9999 !important;
+  left: 1rem !important; right: 1rem !important;
+  bottom: 1rem !important; width: auto !important;
+  transform: none !important; max-width: none !important;
+}
+
+/* 4. Iframes fill container properly */
+.pc-thumb {
+  width: 100% !important; height: 200px !important;
+  aspect-ratio: unset !important; overflow: hidden !important;
+  position: relative !important;
+}
+.pc-thumb iframe {
+  position: absolute !important; top: 0 !important; left: 0 !important;
+  width: 200% !important; height: 200% !important;
+  transform: scale(0.5) !important; transform-origin: top left !important;
+  border: none !important; pointer-events: none !important;
+}
+.proj-img-wrap { overflow: hidden !important; }
+.proj-img-wrap iframe {
+  width: 200% !important; height: 200% !important;
+  transform: scale(0.5) !important; transform-origin: top left !important;
+  border: none !important; pointer-events: none !important; display: block !important;
+}
+.pj-thumb { overflow: hidden !important; position: relative !important; }
+.pj-thumb iframe {
+  position: absolute !important; top: 0 !important; left: 0 !important;
+  width: 200% !important; height: 200% !important;
+  transform: scale(0.5) !important; transform-origin: top left !important;
+  border: none !important; pointer-events: none !important;
+}
+
+@media (max-width: 860px) {
+
+  /* ── PAGE HERO PADDING FIX (text not cut off) ── */
+  .ph, .page-hero {
+    padding-top: 3.5rem !important;
+    padding-bottom: 2.5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  .ph h1, .page-hero h1 {
+    font-size: clamp(2.2rem, 8vw, 3.5rem) !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 3rem 1.25rem 3rem !important;
+    min-height: unset !important;
+  }
+  .hero h1 { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
+  .hero-body { font-size: .9rem !important; max-width: 100% !important; }
+  .hero-btns {
+    flex-direction: column !important; width: 100% !important; gap: .75rem !important;
+  }
+  .hero-btns a { width: 100% !important; justify-content: center !important; }
+
+  /* ── ALL SECTION PADDING ── */
+  .sec, .section, .sdark, .section-dark,
+  .pricing-hero, .legal-page, .lp2, .page {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* ── GRIDS → 1 COLUMN ── */
+  .about-g, .lg, .pg, .pc2, .plans, .card-grid, .portfolio-grid,
+  .price-cards, .contact-grid, .cg, .features-grid, .info-row,
+  .proc, .process-grid, .fi {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* All inline grid → 1 col */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    min-width: 0 !important;
+  }
+
+  /* ── INLINE PADDING REDUCTION ── */
+  [style*="padding:2.5rem"]  { padding: 1.25rem !important; }
+  [style*="padding:4rem 3rem"] { padding: 1.5rem 1.25rem !important; }
+  [style*="padding:5.5rem 3rem"] { padding: 2rem 1.25rem !important; }
+  [style*="padding:4rem 2.5rem"] { padding: 1.75rem 1.25rem !important; }
+
+  /* ── TYPOGRAPHY ── */
+  .sh2, .section-h2 { font-size: clamp(1.5rem, 6vw, 2.2rem) !important; }
+  .lh { font-size: clamp(1.3rem, 5vw, 2rem) !important; }
+  [style*="text-align:right"] { text-align: left !important; }
+  [style*="min-width:120px"] { min-width: 0 !important; }
+
+  /* ── PORTFOLIO ── */
+  .proj-acc-inner { flex-direction: column !important; }
+  .proj-img-wrap { flex: 0 0 200px !important; height: 200px !important; }
+  .proj-right { min-height: 0 !important; }
+  .pj, .proj-item { grid-template-columns: 1fr !important; direction: ltr !important; }
+  .pj * { direction: ltr !important; }
+  .pji, .proj-info { padding: 1.5rem 1.25rem !important; }
+
+  /* ── LEISTUNGEN ACCORDION ── */
+  .acc-inner { grid-template-columns: 1fr !important; padding-left: 0 !important; }
+  .li, .leistung-item { grid-template-columns: 36px 1fr !important; }
+  .li > *:last-child, .leistung-item > *:last-child { grid-column: 2 !important; }
+  .pstep, .process-step {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+  }
+
+  /* ── PREISE ── */
+  .plans { grid-template-columns: 1fr !important; }
+  .plan { width: 100% !important; min-width: 0 !important; overflow: visible !important; }
+  .plan-top, .plan-cta, .plan-features {
+    padding-left: 1.25rem !important; padding-right: 1.25rem !important;
+  }
+  .plan-price { font-size: 2.2rem !important; }
+  .price-card-top { flex-direction: column !important; }
+  .price-big { text-align: left !important; }
+
+  /* ── CONTACT ── */
+  .cl, .contact-left {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    padding: 2rem 1.25rem !important;
+  }
+  .cr, .contact-right { padding: 2rem 1.25rem !important; }
+
+  /* ── STATS ── */
+  .stats, .stats-bar {
+    gap: 1.25rem !important; padding: 1.5rem 1.25rem !important;
+    flex-wrap: wrap !important; justify-content: center !important;
+  }
+  .sn, .stat-n { font-size: 1.9rem !important; }
+
+  /* ── TABLES ── */
+  .pt, .compare, .price-table { overflow-x: auto !important; }
+
+  /* ── MISC ── */
+  [style*="width:55%"][style*="opacity"] { display: none !important; }
+  .scroll-hint { display: none !important; }
+  .mq, .marquee-wrap { overflow: hidden !important; }
+  nav { padding: 0 1.25rem !important; height: 56px !important; }
+  [style*="border-right:1px solid rgba(255"] {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+  }
+  [style*="border-right:1px solid rgba(200,240"] {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(200,240,74,.12) !important;
+  }
+  .cta-group { flex-direction: column !important; align-items: stretch !important; }
+  .cta-group a { text-align: center !important; justify-content: center !important; }
+  .btn-f, .btn-o { width: 100% !important; justify-content: center !important; }
+
+  /* ── PC-THUMB on mobile ── */
+  .pc-thumb { height: 180px !important; }
+
+  /* ── WARTUNG ── */
+  .price-card-main [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  .features-grid { grid-template-columns: 1fr !important; }
+  .info-row { grid-template-columns: 1fr !important; }
+}
+
+/* ── FOOTER CENTERING ── */
+  .fbot { padding: 1rem 1.25rem !important; }
+  footer { width: 100% !important; overflow: hidden !important; }
+  [style*="padding:4rem 2.5rem 3rem"] { padding: 2.5rem 1.25rem !important; }
+
+@media (max-width: 500px) {
+  body { padding-top: 56px !important; }
+  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+  .fi { grid-template-columns: 1fr !important; }
+  .fbot { flex-direction: column !important; text-align: center !important; gap: .5rem !important; }
+  .hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem) !important; }
+  .pc-thumb { height: 150px !important; }
+  nav { padding: 0 1rem !important; }
+  .ph h1 { font-size: clamp(1.9rem, 7vw, 2.5rem) !important; }
+}
+</style>
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">MP<span>.</span>web</a>
+  <div class="nav-right">
+    <a href="kontakt.html" class="nav-cta">Anfragen</a>
+    <button class="burger" id="burger" onclick="toggleMob()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" onclick="closeMob()">Start</a></li>
+    <li><a href="leistungen.html" onclick="closeMob()">Leistungen</a></li>
+    <li><a href="portfolio.html" onclick="closeMob()">Portfolio</a></li>
+    <li><a href="preise.html" class="active" onclick="closeMob()">Preise</a></li>
+    <li><a href="kontakt.html" onclick="closeMob()">Kontakt</a></li>
+  </ul>
+</nav>
+<!-- PAGE HERO -->
+<div class="ph">
+  <div style="position:relative;z-index:1">
+    <div class="eye"><span>Preise</span></div>
+    <h1>Klar.<br><span>Transparent.</span></h1>
+    <p>Keine versteckten Kosten, keine Überraschungen. Einmalig für die Website, danach monatlich pauschal – du weißt immer, was du zahlst.</p>
+  </div>
+</div>
+
+<!-- MAIN PRICING -->
+<div class="pricing-hero" style="position:relative;z-index:1;background:#0a0a0a">
+
+  <!-- STRIPE INFO -->
+  <div class="stripe-info rev">
+    <span class="stripe-icon">🔒</span>
+    <div>
+      <h3>Sicher bezahlen mit Stripe</h3>
+      <p>Die Zahlung läuft über Stripe – einem der weltweit führenden Zahlungsanbieter. Du zahlst per Kreditkarte, SEPA-Lastschrift oder Überweisung. Nach jeder Zahlung erhältst du automatisch eine Rechnung per E-Mail.</p>
+    </div>
+  </div>
+
+      <!-- ── SCHRITTE ── -->
+  <div style="margin-bottom:3rem">
+
+    <!-- SCHRITT 1 -->
+    <div class="step-card" style="background:#111;border:1px solid rgba(255,255,255,.1);border-radius:8px;margin-bottom:1.5rem;overflow:hidden">
+      <div style="background:#c8f04a;display:inline-block;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.1em;color:#0a0a0a;padding:.3rem 1rem;margin:1.5rem 1.5rem 0">SCHRITT 1 · EINMALIG</div>
+      <div style="padding:1.25rem 1.5rem 0">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
+          <div style="flex:1;min-width:200px">
+            <h2 style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem">Website erstellen lassen</h2>
+            <p style="color:#888880;font-size:.88rem;line-height:1.75;font-weight:300">Du zahlst einmalig <strong style="color:#f0f0ee">€ 200</strong> – ich entwickle deine komplette Website. Fertig, live, einsatzbereit. Kein Abo, kein Kleingedrucktes.</p>
+          </div>
+          <div style="flex-shrink:0">
+            <p style="font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#f0f0ee">€ 200</p>
+            <p style="color:#888880;font-size:.75rem;margin-top:.2rem">einmalig</p>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.07);display:flex;flex-wrap:wrap">
+        <div style="flex:1;min-width:160px;padding:1rem 1.5rem;border-right:1px solid rgba(255,255,255,.05)">
+          <p style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#888880;margin-bottom:.5rem">Was du bekommst</p>
+          <div style="display:flex;flex-direction:column;gap:.35rem">
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Individuelles Design</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Responsive (Mobil & Desktop)</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Kontaktformular & SEO</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:160px;padding:1rem 1.5rem;border-right:1px solid rgba(255,255,255,.05)">
+          <p style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#888880;margin-bottom:.5rem">Ablauf</p>
+          <div style="display:flex;flex-direction:column;gap:.35rem">
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Zahlung → sofort geht's los</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Rechnung automatisch per Mail</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Fertig in wenigen Tagen</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:180px;padding:1rem 1.5rem">
+          <p style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#888880;margin-bottom:.75rem">Jetzt bestellen</p>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;align-items:flex-start;gap:.75rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:.85rem 1rem">
+              <input type="checkbox" id="agb200" onchange="toggleBtn('btn200',this)" style="width:16px;height:16px;flex-shrink:0;margin-top:.15rem;accent-color:#c8f04a;cursor:pointer"/>
+              <label for="agb200" style="font-size:.76rem;color:#888880;line-height:1.6;cursor:pointer;font-weight:300">Ich akzeptiere <a href="agb.html" target="_blank" style="color:#c8f04a;text-decoration:none">AGB</a>, <a href="datenschutz.html" target="_blank" style="color:#c8f04a;text-decoration:none">Datenschutz</a> & <a href="impressum.html" target="_blank" style="color:#c8f04a;text-decoration:none">Widerruf</a></label>
+            </div>
+            <a href="https://buy.stripe.com/cNi9AM6b19mK1Or8jz3F600" id="btn200"
+              style="display:flex;align-items:center;justify-content:center;gap:.4rem;background:#888880;color:#0a0a0a;padding:.75rem 1.25rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;text-decoration:none;pointer-events:none;transition:background .2s;text-align:center"
+              onclick="return document.getElementById('agb200').checked">
+              Website kaufen · € 200 →
+            </a>
+            <p style="font-size:.7rem;color:#888880;text-align:center">🔒 Stripe · Sicher & verschlüsselt</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCHRITT 2 -->
+    <div class="step-card" style="background:rgba(200,240,74,.04);border:1px solid rgba(200,240,74,.25);border-radius:8px;overflow:hidden">
+      <div style="background:rgba(200,240,74,.15);border:1px solid rgba(200,240,74,.35);display:inline-block;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.1em;color:#c8f04a;padding:.3rem 1rem;margin:1.5rem 1.5rem 0;border-radius:100px">SCHRITT 2 · OPTIONAL · MONATLICH KÜNDBAR</div>
+      <div style="padding:1.25rem 1.5rem 0">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
+          <div style="flex:1;min-width:200px">
+            <h2 style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem">Wartung & Änderungen dazubuchen</h2>
+            <p style="color:#888880;font-size:.88rem;line-height:1.75;font-weight:300">Sobald deine Website live ist – buchst du dieses Abo dazu. <strong style="color:#f0f0ee">Alle Änderungen inklusive</strong>, kein Limit. Jederzeit kündbar.</p>
+          </div>
+          <div style="flex-shrink:0">
+            <p style="font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#f0f0ee">€ 35</p>
+            <p style="color:#888880;font-size:.75rem;margin-top:.2rem">/ Monat</p>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(200,240,74,.15);display:flex;flex-wrap:wrap">
+        <div style="flex:1;min-width:160px;padding:1rem 1.5rem;border-right:1px solid rgba(200,240,74,.08)">
+          <p style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#888880;margin-bottom:.5rem">Alles inklusive</p>
+          <div style="display:flex;flex-direction:column;gap:.35rem">
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Alle Texte & Bilder ändern</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Neue Seiten hinzufügen</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Sicherheitsupdates & Backups</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:160px;padding:1rem 1.5rem;border-right:1px solid rgba(200,240,74,.08)">
+          <p style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#888880;margin-bottom:.5rem">Konditionen</p>
+          <div style="display:flex;flex-direction:column;gap:.35rem">
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Jederzeit kündbar</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Rechnung automatisch</span>
+            <span style="font-size:.82rem;color:#f0f0ee;font-weight:300;display:flex;gap:.5rem"><span style="color:#c8f04a">✓</span>Auch für Fremd-Websites</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:180px;padding:1rem 1.5rem">
+          <p style="font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#888880;margin-bottom:.75rem">Abo starten</p>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;align-items:flex-start;gap:.75rem;background:rgba(200,240,74,.05);border:1px solid rgba(200,240,74,.2);border-radius:6px;padding:.85rem 1rem">
+              <input type="checkbox" id="agb35" onchange="toggleBtn('btn35',this)" style="width:16px;height:16px;flex-shrink:0;margin-top:.15rem;accent-color:#c8f04a;cursor:pointer"/>
+              <label for="agb35" style="font-size:.76rem;color:#888880;line-height:1.6;cursor:pointer;font-weight:300">Ich akzeptiere <a href="agb.html" target="_blank" style="color:#c8f04a;text-decoration:none">AGB</a>, <a href="datenschutz.html" target="_blank" style="color:#c8f04a;text-decoration:none">Datenschutz</a> & <a href="impressum.html" target="_blank" style="color:#c8f04a;text-decoration:none">Widerruf</a></label>
+            </div>
+            <a href="wartung.html" id="btn35"
+              style="display:flex;align-items:center;justify-content:center;gap:.4rem;background:#888880;color:#0a0a0a;padding:.75rem 1.25rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;text-decoration:none;pointer-events:none;transition:background .2s;text-align:center"
+              onclick="return document.getElementById('agb35').checked">
+              Wartung buchen · € 35/mo →
+            </a>
+            <p style="font-size:.7rem;color:#888880;text-align:center">🔒 Stripe · Monatlich kündbar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div style="margin-bottom:4rem">
+    <div class="eye"><span>Was ist inklusive?</span></div>
+
+    <div style="display:flex;flex-direction:column;gap:1.5px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07)">
+
+      <div style="background:#111;padding:2rem">
+        <p style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:1.25rem;color:#f0f0ee">Website <span style="color:#888880;font-size:.8rem;font-weight:300">· einmalig € 200</span></p>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Individuelles, responsive Design</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Optimiert für Mobil, Tablet & Desktop</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Kontaktformular & Integrationen</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Basis-SEO (Titel, Meta, Struktur)</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Schnelle Ladezeiten von Anfang an</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Konzept & Beratungsgespräch inklusive</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Automatische Rechnung nach Zahlung</div>
+        </div>
+      </div>
+
+      <div style="background:rgba(200,240,74,.04);border-top:1px solid rgba(200,240,74,.2);padding:2rem">
+        <p style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:1.25rem;color:#f0f0ee">Wartung & Pflege <span style="color:#888880;font-size:.8rem;font-weight:300">· € 35/Monat</span></p>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Alle Texte, Bilder & Preise ändern</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Neue Unterseiten & Inhalte hinzufügen</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Alle Anpassungen – kein Limit</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Sicherheitsupdates & Backups</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Performance-Monitoring</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Direkte Erreichbarkeit, schnelle Umsetzung</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Automatische Rechnung jeden Monat</div>
+          <div style="display:flex;gap:.75rem;font-size:.875rem;color:#f0f0ee;font-weight:300"><span style="color:#c8f04a;font-weight:700;flex-shrink:0">✓</span>Jederzeit kündbar</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq rev">
+    <h2>Häufige <span>Fragen</span></h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Wie schnell ist meine Website fertig?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>In der Regel ist eine einfache Website innerhalb von 3–7 Werktagen fertig – vorausgesetzt, du lieferst mir Texte, Bilder und deine Wünsche zeitnah. Ich informiere dich während des Prozesses und du bekommst einen Link zur Vorschau bevor sie live geht.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Wie läuft die Zusammenarbeit ab?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Nach deiner Zahlung melde ich mich innerhalb von 24 Stunden per E-Mail. Wir klären kurz deine Wünsche – Farben, Stil, Inhalte. Danach arbeite ich und schicke dir eine Vorschau zur Freigabe. Änderungswünsche setze ich um, bevor die Seite live geht. Alles läuft per E-Mail, unkompliziert und direkt.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Was brauche ich, um loszulegen?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Nicht viel – im Idealfall hast du eine grobe Vorstellung davon, was die Website zeigen soll (Texte, Logo, Bilder). Falls nicht, helfe ich dir dabei. Du brauchst keine technischen Kenntnisse und musst nichts selbst einrichten. Ich kümmere mich um alles.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Wie funktioniert die Zahlung?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Die Zahlung läuft über Stripe – einen der sichersten Zahlungsanbieter weltweit. Du zahlst per Kreditkarte oder SEPA-Lastschrift. Nach der Zahlung bekommst du sofort eine Rechnung per E-Mail. Beim Wartungsabo wird monatlich automatisch abgebucht – du musst nichts manuell tun.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Bekomme ich eine richtige Rechnung?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Ja – Stripe stellt nach jeder Zahlung automatisch eine ordentliche Rechnung aus und schickt sie dir per E-Mail. Als Kleinunternehmer weise ich gemäß § 19 UStG keine Umsatzsteuer aus – das steht auch auf der Rechnung.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Was ist bei „Alle Änderungen inklusive" genau gemeint?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Alles was du brauchst: Texte ändern, neue Bilder hochladen, Preise aktualisieren, neue Unterseiten hinzufügen, Öffnungszeiten anpassen, Formulare ändern – unbegrenzt. Du schreibst mir per E-Mail was geändert werden soll, ich setze es in der Regel innerhalb von 24 Stunden um.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Kann ich das Wartungsabo wirklich jederzeit kündigen?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Ja, jederzeit. Keine Mindestlaufzeit, keine Kündigungsfristen. Du kannst direkt über das Stripe-Kundenportal kündigen oder mir einfach eine kurze E-Mail schreiben. Das Abo endet dann zum Ende des laufenden Monats – du verlierst keinen bezahlten Zeitraum.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Kann ich das Wartungsabo auch für eine Website buchen, die jemand anderes gebaut hat?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Ja. Das Wartungsabo ist nicht auf Websites beschränkt, die ich selbst gebaut habe. Wenn du eine bestehende Website hast und jemanden brauchst, der sie pflegt und aktualisiert, ist das genau das richtige Paket. Schreib mir kurz, womit deine Website gebaut ist, dann schaue ich es mir an.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Was passiert, wenn ich mit der Website nicht zufrieden bin?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Ich gehe keine Website live, bevor du sie freigegeben hast. Du bekommst eine Vorschau und kannst Änderungen anfragen, bis du zufrieden bist. Falls du grundsätzlich unzufrieden bist, gilt das gesetzliche Widerrufsrecht von 14 Tagen ab Vertragsschluss – einfach per E-Mail melden.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Bekomme ich auch Hosting und Domain?
+        <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Das Paket beinhaltet die Entwicklung deiner Website. Für Hosting und Domain gibt es günstige Anbieter wie IONOS, Strato oder All-Inkl – ich helfe dir bei der Einrichtung und erkläre dir, was du brauchst. Alternativ kann ich deine Website auch direkt bei mir hosten – sprich mich einfach an.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- end pricing-hero -->
+
+<!-- CTA STRIP -->
+<div class="cta-strip rev">
+  <h2>Noch Fragen?<br><span>Ich bin für dich da.</span></h2>
+  <p>Schreib mir direkt – ich erkläre alles, beantworte deine Fragen und wir schauen gemeinsam, welches Paket zu dir passt.</p>
+  <a href="kontakt.html" class="btn-o sm">Gespräch anfangen →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+      <a href="index.html" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#f0f0ee;text-decoration:none;display:block;margin-bottom:1rem">MP<span style="color:#c8f04a">.</span>web</a>
+      <p style="color:#888880;font-size:.85rem;line-height:1.75;font-weight:300">Webdesign aus dem<br>Rhein-Main-Gebiet.<br>Individuell. Sauber. Wirkungsvoll.</p>
+    </div>
+      <!-- Seiten -->
+      <div>
+      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#888880;margin-bottom:1rem;font-weight:400">Seiten</p>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <a href="index.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Start</a>
+        <a href="leistungen.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Leistungen</a>
+        <a href="portfolio.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Portfolio</a>
+        <a href="preise.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Preise</a>
+        <a href="kontakt.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Kontakt</a>
+      </div>
+    </div>
+      <!-- Legal -->
+      <div>
+      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#888880;margin-bottom:1rem;font-weight:400">Legal</p>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <a href="impressum.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Impressum</a>
+        <a href="datenschutz.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Datenschutz</a>
+        <a href="agb.html" style="color:#888880;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">AGB</a>
+      </div>
+    </div>
+      <!-- Projekte -->
+      <div>
+      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#888880;margin-bottom:1rem;font-weight:400">Eigene Projekte</p>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <a href="https://mptrades.de" target="_blank" rel="noopener" style="color:#888880;text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;transition:color .2s" onmouseover="this.style.color='#c8f04a'" onmouseout="this.style.color='#888880'">mptrades.de ↗</a>
+        <a href="https://braxart23.com" target="_blank" rel="noopener" style="color:#888880;text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;transition:color .2s" onmouseover="this.style.color='#c8f04a'" onmouseout="this.style.color='#888880'">braxart23.com ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Max Pörtner · MP Webdesign · Kriftel</p>
+      <div style="display:flex;gap:1.5rem">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="https://billing.stripe.com/p/login/cNi9AM6b19mK1Or8jz3F600" target="_blank" rel="noopener" style="color:#888880;font-size:.76rem;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#f0f0ee'" onmouseout="this.style.color='#888880'">Abo verwalten ↗</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+async function trackConsent(type, nextUrl) {
+  // Send AGB consent to Formspree as proof
+  try {
+    await fetch('https://formspree.io/f/mrerobrq', {
+      method: 'POST',
+      headers: {'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({
+        _subject: 'AGB-Zustimmung: ' + type,
+        typ: type,
+        aktion: 'AGB + Datenschutz + Widerrufsbelehrung akzeptiert',
+        zeitpunkt: new Date().toLocaleString('de-DE'),
+        seite: window.location.href
+      })
+    });
+  } catch(e){}
+  window.location.href = nextUrl;
+}
+function toggleFaq(btn){
+  var item=btn.closest('.faq-item');
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!wasOpen) item.classList.add('open');
+}
+function toggleBtn(id, cb){
+  var btn=document.getElementById(id);
+  if(cb.checked){
+    btn.style.background='#c8f04a';
+    btn.style.pointerEvents='auto';
+  } else {
+    btn.style.background='#888880';
+    btn.style.pointerEvents='none';
+  }
+}
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('nav');
+  if(n) n.classList.toggle('scrolled',window.scrollY>50);
+});
+function toggleMob(){
+  var links=document.getElementById('navLinks');
+  var burger=document.getElementById('burger');
+  var open=links.classList.toggle('open');
+  burger.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMob(){
+  var links=document.getElementById('navLinks');
+  var burger=document.getElementById('burger');
+  if(links) links.classList.remove('open');
+  if(burger) burger.classList.remove('open');
+  document.body.style.overflow='';
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}
+  });
+},{threshold:.07});
+document.querySelectorAll('.rev').forEach(function(el){obs.observe(el);});
+</script>
+
+
+<!-- ── COOKIE BANNER ── -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 3rem);max-width:620px;background:#111;border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:1.4rem 1.75rem;box-shadow:0 8px 48px rgba(0,0,0,.7);flex-wrap:wrap;gap:1rem;align-items:center;opacity:0;transition:opacity .35s">
+  <div style="flex:1;min-width:220px">
+    <p style="font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:#f0f0ee;margin-bottom:.35rem">🍪 Diese Website nutzt Cookies</p>
+    <p style="font-size:.81rem;color:#888880;font-weight:300;line-height:1.65">Wir verwenden Cookies, um die Website zu verbessern. Weitere Infos in der <a href="datenschutz.html" style="color:#c8f04a;text-decoration:none;font-weight:400">Datenschutzerklärung</a>.</p>
+  </div>
+  <div style="display:flex;gap:.65rem;align-items:center;flex-shrink:0">
+    <button onclick="denyCookies()" style="background:none;border:1px solid rgba(255,255,255,.15);color:#888880;padding:.48rem 1rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.79rem;cursor:pointer;white-space:nowrap;transition:all .2s" onmouseover="this.style.borderColor='rgba(255,255,255,.3)';this.style.color='#f0f0ee'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='#888880'">Nur notwendige</button>
+    <button onclick="acceptCookies()" style="background:#c8f04a;border:none;color:#0a0a0a;padding:.48rem 1.15rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.79rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:opacity .2s" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">Akzeptieren</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('mpweb_cookie_consent')){
+    var b=document.getElementById('cookieBanner');
+    if(b){
+      b.style.display='flex';
+      b.style.opacity='0';
+      setTimeout(function(){b.style.opacity='1';},50);
+    }
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('mpweb_cookie_consent','all');
+  hideCookieBanner();
+}
+function denyCookies(){
+  localStorage.setItem('mpweb_cookie_consent','necessary');
+  hideCookieBanner();
+}
+function hideCookieBanner(){
+  var b=document.getElementById('cookieBanner');
+  if(b){
+    b.style.transition='opacity .35s,transform .35s';
+    b.style.opacity='0';
+    b.style.transform='translateX(-50%) translateY(16px)';
+    setTimeout(function(){b.style.display='none';},380);
+  }
+}
+</script>
+</body>
+</html>
