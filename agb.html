@@ -8,19 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{padding-top:64px;background:#000000;color:#f5f5f7;font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
-:root{--b:rgba(255,255,255,.07);--muted:#86868b;--accent:#2997ff;--s1:#161617;--s2:#1c1c1e}
+body{padding-top:64px;background:#ffffff;color:#1d1d1f;font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+:root{--b:rgba(0,0,0,.07);--muted:#6e6e73;--accent:#0f5257;--s1:#f5f5f7;--s2:#f2f2f4}
 nav{position:fixed;top:0;z-index:500;height:64px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.97);border-bottom:1px solid var(--b)}
-.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#f5f5f7;text-decoration:none}
+.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#1d1d1f;text-decoration:none}
 .nav-logo span{color:var(--accent)}
-.nav-links{list-style:none;display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#0b0b0c;border-bottom:1px solid var(--b);padding:1rem 0;z-index:499}
+.nav-links{list-style:none;display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fafafa;border-bottom:1px solid var(--b);padding:1rem 0;z-index:499}
 .nav-links.open{display:flex}
 .nav-links li{width:100%}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;display:block;padding:.85rem 2rem;transition:color .2s,background .2s;border-left:3px solid transparent}
-.nav-links a:hover{color:#f5f5f7;background:rgba(255,255,255,.04);border-left-color:var(--accent)}
-.nav-cta{background:var(--accent);color:#000000;padding:.48rem 1.2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center}
+.nav-links a:hover{color:#1d1d1f;background:rgba(0,0,0,.04);border-left-color:var(--accent)}
+.nav-cta{background:var(--accent);color:#ffffff;padding:.48rem 1.2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center}
 .burger{background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;z-index:600;margin-left:1rem}
-.burger span{display:block;width:24px;height:2px;background:#f5f5f7;transition:all .3s ease;transform-origin:center;border-radius:2px}
+.burger span{display:block;width:24px;height:2px;background:#1d1d1f;transition:all .3s ease;transform-origin:center;border-radius:2px}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -36,27 +36,27 @@ nav{position:fixed;top:0;z-index:500;height:64px;padding:0 2.5rem;display:flex;a
 .lp2 a{color:var(--accent);text-decoration:none}
 .lp2 a:hover{text-decoration:underline}
 .ldiv{height:1px;background:var(--b);margin:2.5rem 0}
-.btn-o{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.25rem;border-radius:100px;background:none;color:#f5f5f7;border:1px solid rgba(255,255,255,.13);font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .2s}
-.btn-o:hover{border-color:rgba(255,255,255,.28);background:var(--s1)}
+.btn-o{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.25rem;border-radius:100px;background:none;color:#1d1d1f;border:1px solid rgba(0,0,0,.13);font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .2s}
+.btn-o:hover{border-color:rgba(0,0,0,.28);background:var(--s1)}
 footer{border-top:1px solid var(--b)}
 .fbot{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;box-sizing:border-box;width:100%}
 .fbot p,.fbot a{color:var(--muted);font-size:.76rem;text-decoration:none}
-.fbot a:hover{color:#f5f5f7}
+.fbot a:hover{color:#1d1d1f}
 .eye{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
 .eye::before{content:'';width:24px;height:1px;background:var(--muted)}
 .eye span{color:var(--muted);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
 @media(max-width:600px){.lp2{padding:5rem 1.25rem 4rem}nav{padding:0 1rem}}
 
 /* ── FOOTER CENTERING ── */
-footer{border-top:1px solid rgba(255,255,255,.07);width:100%;box-sizing:border-box}
+footer{border-top:1px solid rgba(0,0,0,.07);width:100%;box-sizing:border-box}
 .footer-wrap{max-width:1200px;margin:0 auto;width:100%}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;
-  padding:4rem 2.5rem 3rem;border-bottom:1px solid rgba(255,255,255,.07);
+  padding:4rem 2.5rem 3rem;border-bottom:1px solid rgba(0,0,0,.07);
   box-sizing:border-box;width:100%}
 .footer-bottom{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;
   align-items:center;flex-wrap:wrap;gap:.75rem;box-sizing:border-box;width:100%}
-.footer-bottom p,.footer-bottom a{color:#86868b;font-size:.76rem;text-decoration:none;transition:color .2s}
-.footer-bottom a:hover{color:#f5f5f7}
+.footer-bottom p,.footer-bottom a{color:#6e6e73;font-size:.76rem;text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:#1d1d1f}
 @media(max-width:860px){
   .footer-grid{grid-template-columns:1fr 1fr!important;gap:2rem!important;padding:2.5rem 1.25rem!important}
   .footer-bottom{padding:1rem 1.25rem!important;flex-direction:column!important;text-align:center!important;gap:.5rem!important}
@@ -188,7 +188,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   .li > *:last-child, .leistung-item > *:last-child { grid-column: 2 !important; }
   .pstep, .process-step {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
   }
 
   /* ── PREISE ── */
@@ -204,7 +204,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   /* ── CONTACT ── */
   .cl, .contact-left {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
     padding: 2rem 1.25rem !important;
   }
   .cr, .contact-right { padding: 2rem 1.25rem !important; }
@@ -226,11 +226,11 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   nav { padding: 0 1.25rem !important; height: 56px !important; }
   [style*="border-right:1px solid rgba(255"] {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
   }
   [style*="border-right:1px solid rgba(200,240"] {
     border-right: none !important;
-    border-bottom: 1px solid rgba(41,151,255,.12) !important;
+    border-bottom: 1px solid rgba(15,82,87,.12) !important;
   }
   .cta-group { flex-direction: column !important; align-items: stretch !important; }
   .cta-group a { text-align: center !important; justify-content: center !important; }
@@ -290,8 +290,8 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   <h2>§ 2 Leistungsbeschreibung</h2>
   <p>Der Anbieter bietet folgende Leistungen an:</p>
   <ul>
-    <li><strong style="color:#f5f5f7;font-weight:500">Website-Erstellung (einmalig, € 200):</strong> Entwicklung einer individuellen, responsiven Website nach Absprache. Umfang und Inhalte werden vor Beginn gemeinsam festgelegt.</li>
-    <li><strong style="color:#f5f5f7;font-weight:500">Wartung & Pflege (monatlich, € 35):</strong> Laufende Betreuung, Inhaltsaktualisierungen, Sicherheitsupdates und Änderungen an einer bestehenden Website. Das Wartungsabo setzt voraus, dass eine Website beim Anbieter bestellt wurde oder dem Anbieter zur Betreuung übergeben wurde.</li>
+    <li><strong style="color:#1d1d1f;font-weight:500">Website-Erstellung (einmalig, € 200):</strong> Entwicklung einer individuellen, responsiven Website nach Absprache. Umfang und Inhalte werden vor Beginn gemeinsam festgelegt.</li>
+    <li><strong style="color:#1d1d1f;font-weight:500">Wartung & Pflege (monatlich, € 35):</strong> Laufende Betreuung, Inhaltsaktualisierungen, Sicherheitsupdates und Änderungen an einer bestehenden Website. Das Wartungsabo setzt voraus, dass eine Website beim Anbieter bestellt wurde oder dem Anbieter zur Betreuung übergeben wurde.</li>
   </ul>
   <p>Alle Leistungen sind Dienstleistungen im Sinne des § 611 BGB, keine Werkleistungen. Ein bestimmter Erfolg (z.B. bestimmte Google-Rankings) wird nicht geschuldet.</p>
 
@@ -301,23 +301,23 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
 
   <div class="ldiv"></div>
   <h2>§ 4 Preise und Zahlung</h2>
-  <p>Max Pörtner ist <strong style="color:#f5f5f7;font-weight:500">Kleinunternehmer gemäß § 19 UStG</strong> – es wird keine Umsatzsteuer berechnet oder ausgewiesen.</p>
+  <p>Max Pörtner ist <strong style="color:#1d1d1f;font-weight:500">Kleinunternehmer gemäß § 19 UStG</strong> – es wird keine Umsatzsteuer berechnet oder ausgewiesen.</p>
   <ul>
-    <li>Website-Erstellung: <strong style="color:#f5f5f7;font-weight:500">€ 200 einmalig</strong>, fällig bei Vertragsschluss</li>
-    <li>Wartung & Pflege: <strong style="color:#f5f5f7;font-weight:500">€ 35 monatlich</strong>, jeweils im Voraus per Lastschrift/Kreditkarte via Stripe</li>
+    <li>Website-Erstellung: <strong style="color:#1d1d1f;font-weight:500">€ 200 einmalig</strong>, fällig bei Vertragsschluss</li>
+    <li>Wartung & Pflege: <strong style="color:#1d1d1f;font-weight:500">€ 35 monatlich</strong>, jeweils im Voraus per Lastschrift/Kreditkarte via Stripe</li>
   </ul>
   <p>Die Zahlungsabwicklung erfolgt über Stripe Payments Europe, Ltd. Rechnungen werden automatisch erstellt und per E-Mail zugesendet.</p>
 
   <div class="ldiv"></div>
   <h2>§ 5 Widerrufsrecht</h2>
-  <p><strong style="color:#f5f5f7;font-weight:500">Widerrufsbelehrung:</strong> Verbraucher haben das Recht, diesen Vertrag binnen 14 Tagen ohne Angabe von Gründen zu widerrufen. Die Frist beginnt mit Vertragsschluss.</p>
+  <p><strong style="color:#1d1d1f;font-weight:500">Widerrufsbelehrung:</strong> Verbraucher haben das Recht, diesen Vertrag binnen 14 Tagen ohne Angabe von Gründen zu widerrufen. Die Frist beginnt mit Vertragsschluss.</p>
   <p>Widerruf per E-Mail: <a href="mailto:mpoertner06@gmail.com">mpoertner06@gmail.com</a> oder per Post: Max Pörtner, Richard-Wagner-Str. 58, 65830 Kriftel.</p>
-  <p><strong style="color:#f5f5f7;font-weight:500">Erlöschen des Widerrufsrechts:</strong> Bei Dienstleistungen erlischt das Widerrufsrecht, wenn der Anbieter mit der Ausführung der Dienstleistung begonnen hat und der Verbraucher dem ausdrücklich zugestimmt sowie bestätigt hat, dass er mit Beginn der Ausführung sein Widerrufsrecht verliert.</p>
+  <p><strong style="color:#1d1d1f;font-weight:500">Erlöschen des Widerrufsrechts:</strong> Bei Dienstleistungen erlischt das Widerrufsrecht, wenn der Anbieter mit der Ausführung der Dienstleistung begonnen hat und der Verbraucher dem ausdrücklich zugestimmt sowie bestätigt hat, dass er mit Beginn der Ausführung sein Widerrufsrecht verliert.</p>
   <p>Durch Abschluss der Zahlung und den damit verbundenen Beginn der Leistungserbringung erklärt der Kunde sein ausdrückliches Einverständnis mit dem sofortigen Beginn der Dienstleistung und nimmt zur Kenntnis, dass sein Widerrufsrecht mit vollständiger Erbringung der Leistung erlischt.</p>
 
   <div class="ldiv"></div>
   <h2>§ 6 Laufzeit und Kündigung (Wartungsabo)</h2>
-  <p>Das Wartungsabo läuft auf unbestimmte Zeit und ist <strong style="color:#f5f5f7;font-weight:500">monatlich zum Ende des jeweiligen Abrechnungszeitraums kündbar</strong>. Die Kündigung kann jederzeit über das Stripe-Kundenportal oder per E-Mail an <a href="mailto:mpoertner06@gmail.com">mpoertner06@gmail.com</a> erfolgen. Bei fristgerechter Kündigung endet das Abo zum Ende des bezahlten Monats; bereits geleistete Zahlungen werden nicht erstattet.</p>
+  <p>Das Wartungsabo läuft auf unbestimmte Zeit und ist <strong style="color:#1d1d1f;font-weight:500">monatlich zum Ende des jeweiligen Abrechnungszeitraums kündbar</strong>. Die Kündigung kann jederzeit über das Stripe-Kundenportal oder per E-Mail an <a href="mailto:mpoertner06@gmail.com">mpoertner06@gmail.com</a> erfolgen. Bei fristgerechter Kündigung endet das Abo zum Ende des bezahlten Monats; bereits geleistete Zahlungen werden nicht erstattet.</p>
 
   <div class="ldiv"></div>
   <h2>§ 7 Mitwirkungspflichten des Kunden</h2>

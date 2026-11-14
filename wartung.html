@@ -10,22 +10,22 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{padding-top:64px;background:#000000;color:#f5f5f7;font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;min-height:100vh}
-:root{--b:rgba(255,255,255,.07);--b2:rgba(255,255,255,.13);--muted:#86868b;--accent:#2997ff;--s1:#161617;--s2:#1c1c1e}
+body{padding-top:64px;background:#ffffff;color:#1d1d1f;font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;min-height:100vh}
+:root{--b:rgba(0,0,0,.07);--b2:rgba(0,0,0,.13);--muted:#6e6e73;--accent:#0f5257;--s1:#f5f5f7;--s2:#f2f2f4}
 /* NAV */
 nav{position:fixed;top:0;z-index:500;height:64px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.97);border-bottom:1px solid var(--b)}
-.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#f5f5f7;text-decoration:none}
+.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#1d1d1f;text-decoration:none}
 .nav-logo span{color:var(--accent)}
-.nav-links{list-style:none;display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#0b0b0c;border-bottom:1px solid var(--b);padding:1rem 0;z-index:499}
+.nav-links{list-style:none;display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fafafa;border-bottom:1px solid var(--b);padding:1rem 0;z-index:499}
 .nav-links.open{display:flex}
 .nav-links li{width:100%}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:400;display:block;padding:.85rem 2rem;transition:color .2s,background .2s;border-left:3px solid transparent}
-.nav-links a:hover{color:#f5f5f7;background:rgba(255,255,255,.04);border-left-color:var(--accent)}
-.nav-links a.active{color:#f5f5f7;border-left-color:var(--accent)}
-.nav-cta{background:var(--accent);color:#000000;padding:.48rem 1.2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;transition:transform .2s,box-shadow .2s;white-space:nowrap}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(41,151,255,.3)}
+.nav-links a:hover{color:#1d1d1f;background:rgba(0,0,0,.04);border-left-color:var(--accent)}
+.nav-links a.active{color:#1d1d1f;border-left-color:var(--accent)}
+.nav-cta{background:var(--accent);color:#ffffff;padding:.48rem 1.2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(15,82,87,.3)}
 .burger{background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;z-index:600;margin-left:1rem}
-.burger span{display:block;width:24px;height:2px;background:#f5f5f7;transition:all .3s ease;transform-origin:center;border-radius:2px}
+.burger span{display:block;width:24px;height:2px;background:#1d1d1f;transition:all .3s ease;transform-origin:center;border-radius:2px}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -39,42 +39,42 @@ nav{position:fixed;top:0;z-index:500;height:64px;padding:0 2.5rem;display:flex;a
 .warning-box.show{display:flex;gap:1rem;align-items:flex-start}
 .warning-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
 .warning-box h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:#f5a623;margin-bottom:.4rem}
-.warning-box p{font-size:.88rem;color:#86868b;line-height:1.7;font-weight:300}
+.warning-box p{font-size:.88rem;color:#6e6e73;line-height:1.7;font-weight:300}
 .warning-box a{color:var(--accent);text-decoration:none;font-weight:500}
 
 /* SUCCESS BOX (from redirect) */
-.success-box{background:rgba(41,151,255,.06);border:1px solid rgba(41,151,255,.3);border-left:4px solid var(--accent);border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:none}
+.success-box{background:rgba(15,82,87,.06);border:1px solid rgba(15,82,87,.3);border-left:4px solid var(--accent);border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:3rem;display:none}
 .success-box.show{display:flex;gap:1rem;align-items:flex-start}
 .success-box h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:.4rem}
-.success-box p{font-size:.88rem;color:#86868b;line-height:1.7;font-weight:300}
+.success-box p{font-size:.88rem;color:#6e6e73;line-height:1.7;font-weight:300}
 
 /* HERO */
 .wartung-hero{text-align:center;margin-bottom:3.5rem}
-.step-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(41,151,255,.08);border:1px solid rgba(41,151,255,.2);color:var(--accent);padding:.3rem .9rem;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.step-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(15,82,87,.08);border:1px solid rgba(15,82,87,.2);color:var(--accent);padding:.3rem .9rem;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
 .wartung-hero h1{font-family:'Inter',sans-serif;font-size:clamp(2.2rem,6vw,3.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:1rem}
 .wartung-hero h1 span{color:var(--accent)}
 .wartung-hero p{color:var(--muted);font-size:1rem;line-height:1.8;font-weight:300;max-width:520px;margin:0 auto}
 
 /* PRICE CARD */
-.price-card-main{background:rgba(41,151,255,.04);border:2px solid rgba(41,151,255,.3);border-radius:12px;padding:2.5rem;margin-bottom:2rem}
+.price-card-main{background:rgba(15,82,87,.04);border:2px solid rgba(15,82,87,.3);border-radius:12px;padding:2.5rem;margin-bottom:2rem}
 .price-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
 .price-card-main h2{font-family:'Inter',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem}
 .price-card-main .tagline{color:var(--muted);font-size:.9rem;line-height:1.7;font-weight:300;max-width:400px}
 .price-big{text-align:right;flex-shrink:0}
-.price-big .amount{font-family:'Inter',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#f5f5f7}
+.price-big .amount{font-family:'Inter',sans-serif;font-size:3.5rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:#1d1d1f}
 .price-big .period{color:var(--muted);font-size:.85rem;margin-top:.2rem}
 
 /* FEATURES */
 .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:2rem}
-.feat{display:flex;align-items:flex-start;gap:.75rem;font-size:.875rem;color:#f5f5f7;font-weight:300;line-height:1.5}
+.feat{display:flex;align-items:flex-start;gap:.75rem;font-size:.875rem;color:#1d1d1f;font-weight:300;line-height:1.5}
 .feat::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:.05em}
 
 /* DIVIDER */
-.divider{height:1px;background:rgba(41,151,255,.15);margin:2rem 0}
+.divider{height:1px;background:rgba(15,82,87,.15);margin:2rem 0}
 
 /* CTA */
-.cta-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1.1rem 2rem;background:var(--accent);color:#000000;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;letter-spacing:-.01em}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(41,151,255,.3)}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1.1rem 2rem;background:var(--accent);color:#ffffff;border:none;border-radius:100px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;letter-spacing:-.01em}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(15,82,87,.3)}
 .cta-note{text-align:center;margin-top:.75rem;font-size:.78rem;color:var(--muted)}
 
 /* INFO BOXES */
@@ -86,19 +86,19 @@ nav{position:fixed;top:0;z-index:500;height:64px;padding:0 2.5rem;display:flex;a
 
 /* LEGAL NOTICE */
 .legal-notice{background:var(--s2);border:1px solid var(--b);border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:3rem;font-size:.82rem;color:var(--muted);line-height:1.75;font-weight:300}
-.legal-notice strong{color:#f5f5f7;font-weight:500}
+.legal-notice strong{color:#1d1d1f;font-weight:500}
 .legal-notice a{color:var(--accent);text-decoration:none}
 
 /* BACK LINK */
 .back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);text-decoration:none;font-size:.84rem;transition:color .2s;margin-bottom:2.5rem}
-.back-link:hover{color:#f5f5f7}
+.back-link:hover{color:#1d1d1f}
 
 /* FOOTER */
 footer{border-top:1px solid var(--b)}
 .fi{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;padding:4rem 2.5rem 3rem;border-bottom:1px solid var(--b)}
 .fbot{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;box-sizing:border-box;width:100%}
 .fbot p,.fbot a{color:var(--muted);font-size:.76rem;text-decoration:none;transition:color .2s}
-.fbot a:hover{color:#f5f5f7}
+.fbot a:hover{color:#1d1d1f}
 
 @media(max-width:680px){
   .page{padding:3rem 1.25rem 4rem}
@@ -114,15 +114,15 @@ footer{border-top:1px solid var(--b)}
 }
 
 /* ── FOOTER CENTERING ── */
-footer{border-top:1px solid rgba(255,255,255,.07);width:100%;box-sizing:border-box}
+footer{border-top:1px solid rgba(0,0,0,.07);width:100%;box-sizing:border-box}
 .footer-wrap{max-width:1200px;margin:0 auto;width:100%}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;
-  padding:4rem 2.5rem 3rem;border-bottom:1px solid rgba(255,255,255,.07);
+  padding:4rem 2.5rem 3rem;border-bottom:1px solid rgba(0,0,0,.07);
   box-sizing:border-box;width:100%}
 .footer-bottom{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;
   align-items:center;flex-wrap:wrap;gap:.75rem;box-sizing:border-box;width:100%}
-.footer-bottom p,.footer-bottom a{color:#86868b;font-size:.76rem;text-decoration:none;transition:color .2s}
-.footer-bottom a:hover{color:#f5f5f7}
+.footer-bottom p,.footer-bottom a{color:#6e6e73;font-size:.76rem;text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:#1d1d1f}
 @media(max-width:860px){
   .footer-grid{grid-template-columns:1fr 1fr!important;gap:2rem!important;padding:2.5rem 1.25rem!important}
   .footer-bottom{padding:1rem 1.25rem!important;flex-direction:column!important;text-align:center!important;gap:.5rem!important}
@@ -254,7 +254,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   .li > *:last-child, .leistung-item > *:last-child { grid-column: 2 !important; }
   .pstep, .process-step {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
   }
 
   /* ── PREISE ── */
@@ -270,7 +270,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   /* ── CONTACT ── */
   .cl, .contact-left {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
     padding: 2rem 1.25rem !important;
   }
   .cr, .contact-right { padding: 2rem 1.25rem !important; }
@@ -292,11 +292,11 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   nav { padding: 0 1.25rem !important; height: 56px !important; }
   [style*="border-right:1px solid rgba(255"] {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
   }
   [style*="border-right:1px solid rgba(200,240"] {
     border-right: none !important;
-    border-bottom: 1px solid rgba(41,151,255,.12) !important;
+    border-bottom: 1px solid rgba(15,82,87,.12) !important;
   }
   .cta-group { flex-direction: column !important; align-items: stretch !important; }
   .cta-group a { text-align: center !important; justify-content: center !important; }
@@ -355,8 +355,8 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
     <span style="font-size:1.5rem;flex-shrink:0">🎉</span>
     <div>
       <h3>Zahlung erfolgreich – deine Website ist auf dem Weg!</h3>
-      <p>Deine Einmalzahlung von <strong style="color:#f5f5f7">€ 200</strong> wurde bestätigt. Ich melde mich in Kürze bei dir, um mit der Entwicklung zu starten.<br><br>
-      <strong style="color:#f5f5f7">Optional:</strong> Möchtest du direkt auch die monatliche Wartung dazubuchen? Dann kannst du das gleich hier tun – oder jederzeit später.</p>
+      <p>Deine Einmalzahlung von <strong style="color:#1d1d1f">€ 200</strong> wurde bestätigt. Ich melde mich in Kürze bei dir, um mit der Entwicklung zu starten.<br><br>
+      <strong style="color:#1d1d1f">Optional:</strong> Möchtest du direkt auch die monatliche Wartung dazubuchen? Dann kannst du das gleich hier tun – oder jederzeit später.</p>
     </div>
   </div>
 
@@ -365,7 +365,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
     <span class="warning-icon">⚠️</span>
     <div>
       <h3>Wichtiger Hinweis</h3>
-      <p>Das Wartungsabo setzt voraus, dass du bereits eine Website bei uns gekauft hast (<strong style="color:#f5f5f7">einmalig € 200</strong>). Das Abo alleine beinhaltet keine Website-Erstellung.<br><br>
+      <p>Das Wartungsabo setzt voraus, dass du bereits eine Website bei uns gekauft hast (<strong style="color:#1d1d1f">einmalig € 200</strong>). Das Abo alleine beinhaltet keine Website-Erstellung.<br><br>
       Noch keine Website? <a href="preise.html">Zuerst die Website kaufen →</a></p>
     </div>
   </div>
@@ -407,18 +407,18 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
 
     <!-- MAIN CTA -->
     <!-- ↓ ERSETZE MIT DEINEM STRIPE SUBSCRIPTION LINK (€35/Monat) -->
-    <div style="display:flex;align-items:flex-start;gap:.85rem;margin-bottom:1rem;background:rgba(41,151,255,.03);border:1px solid rgba(41,151,255,.2);border-radius:8px;padding:1rem 1.25rem">
+    <div style="display:flex;align-items:flex-start;gap:.85rem;margin-bottom:1rem;background:rgba(15,82,87,.03);border:1px solid rgba(15,82,87,.2);border-radius:8px;padding:1rem 1.25rem">
     <input type="checkbox" id="agbw" onchange="toggleWBtn(this)"
-      style="width:18px;height:18px;flex-shrink:0;margin-top:.15rem;accent-color:#2997ff;cursor:pointer"/>
-    <label for="agbw" style="font-size:.81rem;color:#86868b;line-height:1.65;cursor:pointer;font-weight:300">
-      Ich habe die <a href="agb.html" target="_blank" style="color:#2997ff;text-decoration:none;font-weight:500">AGB</a>,
-      die <a href="datenschutz.html" target="_blank" style="color:#2997ff;text-decoration:none;font-weight:500">Datenschutzerklärung</a>
-      und die <a href="impressum.html" target="_blank" style="color:#2997ff;text-decoration:none;font-weight:500">Widerrufsbelehrung</a>
+      style="width:18px;height:18px;flex-shrink:0;margin-top:.15rem;accent-color:#0f5257;cursor:pointer"/>
+    <label for="agbw" style="font-size:.81rem;color:#6e6e73;line-height:1.65;cursor:pointer;font-weight:300">
+      Ich habe die <a href="agb.html" target="_blank" style="color:#0f5257;text-decoration:none;font-weight:500">AGB</a>,
+      die <a href="datenschutz.html" target="_blank" style="color:#0f5257;text-decoration:none;font-weight:500">Datenschutzerklärung</a>
+      und die <a href="impressum.html" target="_blank" style="color:#0f5257;text-decoration:none;font-weight:500">Widerrufsbelehrung</a>
       gelesen und akzeptiere diese.
     </label>
   </div>
   <a href="https://buy.stripe.com/bJe9AMfLBbuSfFharH3F601" id="mainCta" class="cta-btn"
-    style="pointer-events:none;opacity:.5;background:#86868b"
+    style="pointer-events:none;opacity:.5;background:#6e6e73"
     onclick="if(document.getElementById('agbw').checked){trackConsent('Wartung-Abo €35',this.href);return false;}return false;">
     🔒 Wartungsabo starten · € 35/Monat →
   </a>
@@ -429,12 +429,12 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
     <!-- Kundenportal -->
   <div style="background:var(--s2);border:1px solid var(--b);border-radius:8px;padding:1.25rem 1.5rem;margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
     <div>
-      <p style="font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.25rem;color:#f5f5f7">Abo verwalten oder kündigen</p>
-      <p style="font-size:.82rem;color:#86868b;font-weight:300">Zahlungsmethode ändern, Rechnungen einsehen oder Abo kündigen – alles im Stripe Kundenportal.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.25rem;color:#1d1d1f">Abo verwalten oder kündigen</p>
+      <p style="font-size:.82rem;color:#6e6e73;font-weight:300">Zahlungsmethode ändern, Rechnungen einsehen oder Abo kündigen – alles im Stripe Kundenportal.</p>
     </div>
     <a href="https://billing.stripe.com/p/login/cNi9AM6b19mK1Or8jz3F600" target="_blank" rel="noopener"
-      style="display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid rgba(255,255,255,.15);color:#f5f5f7;padding:.55rem 1.25rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:border-color .2s"
-      onmouseover="this.style.borderColor='rgba(255,255,255,.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)'">
+      style="display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid rgba(0,0,0,.15);color:#1d1d1f;padding:.55rem 1.25rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:border-color .2s"
+      onmouseover="this.style.borderColor='rgba(0,0,0,.35)'" onmouseout="this.style.borderColor='rgba(0,0,0,.15)'">
       Kundenportal öffnen ↗
     </a>
   </div>
@@ -503,14 +503,14 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
 </footer>
 
 <!-- COOKIE BANNER -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 3rem);max-width:620px;background:#161617;border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:1.4rem 1.75rem;box-shadow:0 8px 48px rgba(0,0,0,.7);flex-wrap:wrap;gap:1rem;align-items:center;opacity:0;transition:opacity .35s">
+<div id="cookieBanner" style="display:none;position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;width:calc(100% - 3rem);max-width:620px;background:#f5f5f7;border:1px solid rgba(0,0,0,.13);border-radius:14px;padding:1.4rem 1.75rem;box-shadow:0 8px 48px rgba(0,0,0,.7);flex-wrap:wrap;gap:1rem;align-items:center;opacity:0;transition:opacity .35s">
   <div style="flex:1;min-width:220px">
-    <p style="font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#f5f5f7;margin-bottom:.35rem">🍪 Diese Website nutzt Cookies</p>
-    <p style="font-size:.81rem;color:#86868b;font-weight:300;line-height:1.65">Wir verwenden Cookies zur Verbesserung des Nutzererlebnisses. Mehr in der <a href="datenschutz.html" style="color:#2997ff;text-decoration:none">Datenschutzerklärung</a>.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:#1d1d1f;margin-bottom:.35rem">🍪 Diese Website nutzt Cookies</p>
+    <p style="font-size:.81rem;color:#6e6e73;font-weight:300;line-height:1.65">Wir verwenden Cookies zur Verbesserung des Nutzererlebnisses. Mehr in der <a href="datenschutz.html" style="color:#0f5257;text-decoration:none">Datenschutzerklärung</a>.</p>
   </div>
   <div style="display:flex;gap:.65rem;align-items:center;flex-shrink:0">
-    <button onclick="denyCookies()" style="background:none;border:1px solid rgba(255,255,255,.15);color:#86868b;padding:.48rem 1rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.79rem;cursor:pointer;white-space:nowrap" onmouseover="this.style.borderColor='rgba(255,255,255,.3)';this.style.color='#f5f5f7'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='#86868b'">Nur notwendige</button>
-    <button onclick="acceptCookies()" style="background:#2997ff;border:none;color:#fff;padding:.48rem 1.15rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.79rem;font-weight:700;cursor:pointer;white-space:nowrap" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">Akzeptieren</button>
+    <button onclick="denyCookies()" style="background:none;border:1px solid rgba(0,0,0,.15);color:#6e6e73;padding:.48rem 1rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.79rem;cursor:pointer;white-space:nowrap" onmouseover="this.style.borderColor='rgba(0,0,0,.3)';this.style.color='#1d1d1f'" onmouseout="this.style.borderColor='rgba(0,0,0,.15)';this.style.color='#6e6e73'">Nur notwendige</button>
+    <button onclick="acceptCookies()" style="background:#0f5257;border:none;color:#fff;padding:.48rem 1.15rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.79rem;font-weight:700;cursor:pointer;white-space:nowrap" onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">Akzeptieren</button>
   </div>
 </div>
 
@@ -536,11 +536,11 @@ function toggleWBtn(cb){
   if(cb.checked){
     btn.style.pointerEvents='auto';
     btn.style.opacity='1';
-    btn.style.background='#2997ff';
+    btn.style.background='#0f5257';
   } else {
     btn.style.pointerEvents='none';
     btn.style.opacity='.5';
-    btn.style.background='#86868b';
+    btn.style.background='#6e6e73';
   }
 }
 // Nav

@@ -10,21 +10,21 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{padding-top:64px;background:#000000;color:#f5f5f7;font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
-:root{--b:rgba(255,255,255,.07);--muted:#86868b;--accent:#2997ff;--s1:#161617;--s2:#1c1c1e}
+body{padding-top:64px;background:#ffffff;color:#1d1d1f;font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+:root{--b:rgba(0,0,0,.07);--muted:#6e6e73;--accent:#0f5257;--s1:#f5f5f7;--s2:#f2f2f4}
 
 nav{position:fixed;top:0;z-index:500;height:64px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.97);border-bottom:1px solid var(--b)}
-.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#f5f5f7;text-decoration:none}
+.nav-logo{font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#1d1d1f;text-decoration:none}
 .nav-logo span{color:var(--accent)}
-.nav-links{list-style:none;display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#0b0b0c;border-bottom:1px solid var(--b);padding:1rem 0;z-index:499}
+.nav-links{list-style:none;display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fafafa;border-bottom:1px solid var(--b);padding:1rem 0;z-index:499}
 .nav-links.open{display:flex}
 .nav-links li{width:100%}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;display:block;padding:.85rem 2rem;transition:color .2s,background .2s;border-left:3px solid transparent}
-.nav-links a:hover{color:#f5f5f7;background:rgba(255,255,255,.04);border-left-color:var(--accent)}
-.nav-cta{background:var(--accent);color:#000000;padding:.48rem 1.2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;transition:transform .2s,box-shadow .2s}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(41,151,255,.3)}
+.nav-links a:hover{color:#1d1d1f;background:rgba(0,0,0,.04);border-left-color:var(--accent)}
+.nav-cta{background:var(--accent);color:#ffffff;padding:.48rem 1.2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;transition:transform .2s,box-shadow .2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(15,82,87,.3)}
 .burger{background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;z-index:600;margin-left:1rem}
-.burger span{display:block;width:24px;height:2px;background:#f5f5f7;transition:all .3s ease;transform-origin:center;border-radius:2px}
+.burger span{display:block;width:24px;height:2px;background:#1d1d1f;transition:all .3s ease;transform-origin:center;border-radius:2px}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -36,7 +36,7 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 
 .thank-card{max-width:600px;width:100%;text-align:center}
 
 /* Checkmark animation */
-.check-circle{width:80px;height:80px;border-radius:50%;background:rgba(41,151,255,.12);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;animation:popIn .5s cubic-bezier(.175,.885,.32,1.275) both}
+.check-circle{width:80px;height:80px;border-radius:50%;background:rgba(15,82,87,.12);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;animation:popIn .5s cubic-bezier(.175,.885,.32,1.275) both}
 .check-circle svg{width:36px;height:36px}
 @keyframes popIn{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
 .check-path{stroke-dasharray:50;stroke-dashoffset:50;animation:drawCheck .4s ease .4s forwards}
@@ -48,12 +48,12 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 
 
 /* What happens next */
 .next-steps{background:var(--s1);border:1px solid var(--b);border-radius:12px;padding:2rem;margin-bottom:2.5rem;text-align:left;animation:fadeUp .6s ease .4s both}
-.next-steps h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;margin-bottom:1.25rem;color:#f5f5f7}
+.next-steps h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;margin-bottom:1.25rem;color:#1d1d1f}
 .step-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem}
 .step-item:last-child{margin-bottom:0}
-.step-num{width:28px;height:28px;border-radius:50%;background:rgba(41,151,255,.12);border:1px solid rgba(41,151,255,.3);color:var(--accent);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.step-num{width:28px;height:28px;border-radius:50%;background:rgba(15,82,87,.12);border:1px solid rgba(15,82,87,.3);color:var(--accent);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
 .step-item p{font-size:.88rem;color:var(--muted);line-height:1.65;font-weight:300}
-.step-item p strong{color:#f5f5f7;font-weight:500}
+.step-item p strong{color:#1d1d1f;font-weight:500}
 
 /* Type-specific content */
 .type-website .next-steps-website{display:block}
@@ -62,10 +62,10 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 
 
 /* CTA buttons */
 .cta-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s ease .5s both}
-.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#000000;padding:.875rem 2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(41,151,255,.3)}
-.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:none;color:#f5f5f7;border:1px solid rgba(255,255,255,.15);padding:.875rem 2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:500;text-decoration:none;transition:all .2s}
-.btn-secondary:hover{border-color:rgba(255,255,255,.3);background:var(--s1)}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#ffffff;padding:.875rem 2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(15,82,87,.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;background:none;color:#1d1d1f;border:1px solid rgba(0,0,0,.15);padding:.875rem 2rem;border-radius:100px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:500;text-decoration:none;transition:all .2s}
+.btn-secondary:hover{border-color:rgba(0,0,0,.3);background:var(--s1)}
 
 /* Receipt note */
 .receipt-note{margin-top:2rem;font-size:.8rem;color:var(--muted);animation:fadeUp .6s ease .6s both}
@@ -76,7 +76,7 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 
 footer{border-top:1px solid var(--b)}
 .fbot{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;box-sizing:border-box;width:100%}
 .fbot p,.fbot a{color:var(--muted);font-size:.76rem;text-decoration:none;transition:color .2s}
-.fbot a:hover{color:#f5f5f7}
+.fbot a:hover{color:#1d1d1f}
 
 @media(max-width:480px){
   nav{padding:0 1rem}
@@ -85,15 +85,15 @@ footer{border-top:1px solid var(--b)}
 }
 
 /* ── FOOTER CENTERING ── */
-footer{border-top:1px solid rgba(255,255,255,.07);width:100%;box-sizing:border-box}
+footer{border-top:1px solid rgba(0,0,0,.07);width:100%;box-sizing:border-box}
 .footer-wrap{max-width:1200px;margin:0 auto;width:100%}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;
-  padding:4rem 2.5rem 3rem;border-bottom:1px solid rgba(255,255,255,.07);
+  padding:4rem 2.5rem 3rem;border-bottom:1px solid rgba(0,0,0,.07);
   box-sizing:border-box;width:100%}
 .footer-bottom{padding:1.3rem 2.5rem;display:flex;justify-content:space-between;
   align-items:center;flex-wrap:wrap;gap:.75rem;box-sizing:border-box;width:100%}
-.footer-bottom p,.footer-bottom a{color:#86868b;font-size:.76rem;text-decoration:none;transition:color .2s}
-.footer-bottom a:hover{color:#f5f5f7}
+.footer-bottom p,.footer-bottom a{color:#6e6e73;font-size:.76rem;text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:#1d1d1f}
 @media(max-width:860px){
   .footer-grid{grid-template-columns:1fr 1fr!important;gap:2rem!important;padding:2.5rem 1.25rem!important}
   .footer-bottom{padding:1rem 1.25rem!important;flex-direction:column!important;text-align:center!important;gap:.5rem!important}
@@ -225,7 +225,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   .li > *:last-child, .leistung-item > *:last-child { grid-column: 2 !important; }
   .pstep, .process-step {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
   }
 
   /* ── PREISE ── */
@@ -241,7 +241,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   /* ── CONTACT ── */
   .cl, .contact-left {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
     padding: 2rem 1.25rem !important;
   }
   .cr, .contact-right { padding: 2rem 1.25rem !important; }
@@ -263,11 +263,11 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
   nav { padding: 0 1.25rem !important; height: 56px !important; }
   [style*="border-right:1px solid rgba(255"] {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(0,0,0,.07) !important;
   }
   [style*="border-right:1px solid rgba(200,240"] {
     border-right: none !important;
-    border-bottom: 1px solid rgba(41,151,255,.12) !important;
+    border-bottom: 1px solid rgba(15,82,87,.12) !important;
   }
   .cta-group { flex-direction: column !important; align-items: stretch !important; }
   .cta-group a { text-align: center !important; justify-content: center !important; }
@@ -323,7 +323,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
     <!-- Check animation -->
     <div class="check-circle">
       <svg viewBox="0 0 36 36" fill="none">
-        <path class="check-path" d="M8 18l7 7 13-13" stroke="#2997ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="check-path" d="M8 18l7 7 13-13" stroke="#0f5257" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
@@ -383,7 +383,7 @@ document.getElementById('thankSubtitle').textContent='Dein monatliches Wartungsa
 document.getElementById('nextStepsContent').innerHTML=
   '<div class="step-item"><div class="step-num">1</div><p><strong>Dein Abo ist sofort aktiv.</strong> Die nächste Zahlung erfolgt in 30 Tagen automatisch. Rechnung kommt immer per E-Mail.</p></div>'+
   '<div class="step-item"><div class="step-num">2</div><p><strong>Änderungen anfragen:</div>'+
-  '<div class="step-item"><div class="step-num">3</div><p><strong>Kündigung jederzeit</strong> möglich – über das <a href="https://billing.stripe.com/p/login/cNi9AM6b19mK1Or8jz3F600" target="_blank" rel="noopener" style="color:#2997ff;text-decoration:none;font-weight:500">Stripe Kundenportal</a> oder per E-Mail. Gilt ab dem nächsten Monat, du verlierst keinen bezahlten Zeitraum.</p></div>';
+  '<div class="step-item"><div class="step-num">3</div><p><strong>Kündigung jederzeit</strong> möglich – über das <a href="https://billing.stripe.com/p/login/cNi9AM6b19mK1Or8jz3F600" target="_blank" rel="noopener" style="color:#0f5257;text-decoration:none;font-weight:500">Stripe Kundenportal</a> oder per E-Mail. Gilt ab dem nächsten Monat, du verlierst keinen bezahlten Zeitraum.</p></div>';
 document.getElementById('ctaGroup').innerHTML=
   '<a href="kontakt.html" class="btn-primary">Änderung anfragen →</a>'+
   '<a href="index.html" class="btn-secondary">Zur Startseite</a>';
