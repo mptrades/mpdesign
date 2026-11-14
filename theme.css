@@ -123,3 +123,5 @@ footer{background:#fafafa!important;border-top:1px solid rgba(0,0,0,.06)!importa
 @media (max-width:760px){.ft2-grid{grid-template-columns:1fr 1fr}.ft2-grid>div:first-child{grid-column:1/-1}.ft2-bot{flex-direction:column;gap:.4rem;text-align:center}}
 .ph+.quote-sec>.eye,.ph+.quote-sec>.sh2{display:none!important}
 @media (max-width:600px){.brand em{display:none}.hero .hero-body{font-size:1.02rem!important}.hero h1{font-size:2.6rem!important}}
+@media (min-width:1000px){.pg{grid-template-columns:repeat(2,1fr)!important}}
+#cookieBanner{display:none!important}
