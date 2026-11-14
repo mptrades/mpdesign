@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Portfolio – MP Webdesign</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='13' fill='%23f0f0ee' letter-spacing='-1'%3EMP%3C/text%3E%3Ccircle cx='25' cy='22' r='4' fill='%23c8f04a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f5257'/%3E%3Crect x='7' y='9' width='18' height='14' rx='3' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M7 13h18' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='22' cy='20' r='3' fill='%233fb8a8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -111,12 +111,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;padding:0 2rem;d
   .footer-grid{grid-template-columns:1fr!important}
 }
 </style>
-<link rel="stylesheet" href="theme.css?v=2">
+<link rel="stylesheet" href="theme.css?v=3">
 </head>
 <body>
 
 <nav id="nav">
-  <a href="index.html" class="nav-logo">MP<span>.</span>web</a>
+  <a href="index.html" class="nav-logo brand"><span class="brand-mark"></span>Pörtner<em>Webdesign</em></a>
   <div class="nav-right">
     <a href="kontakt.html" class="nav-cta">Anfragen</a>
     <button class="burger" id="burger" onclick="toggleMob()" aria-label="Menü">
@@ -136,100 +136,57 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;padding:0 2rem;d
 <div class="ph">
   <div class="eye"><span>Meine Arbeiten</span></div>
   <h1>Websites mit<br><span>Haltung.</span></h1>
-  <p>Drei Projekte – zwei für Kunden, eins aus Leidenschaft. Jedes anders, jedes mit eigenem Charakter. Das ist kein Zufall, sondern mein Ansatz.</p>
+  <p>Drei Projekte – Kunst, Fintech und eine App. Jedes anders, jedes mit eigenem Charakter. Das ist kein Zufall, sondern mein Ansatz.</p>
 </div>
 
 <!-- PORTFOLIO GRID -->
 <div class="port-grid">
-
-  <!-- BRAXART -->
-  <div class="port-card rev" id="pc-braxart">
-    <div class="port-img" onclick="togglePort('pc-braxart')">
-      <iframe src="https://braxart23.com" title="braxart23.com" loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
-      <div class="port-img-overlay"></div>
-    </div>
-    <div class="port-bar" onclick="togglePort('pc-braxart')">
+  <div class="port-card rev" id="braxart">
+    <div class="port-img" onclick="togglePort('braxart')"><img src="img/braxart.jpg" alt="braxart23.com" loading="lazy"></div>
+    <div class="port-bar" onclick="togglePort('braxart')">
       <div class="port-bar-left">
-        <span class="port-tag">Eigenprojekt · Kreativ & Branding<span class="own-badge">Eigenentwicklung</span></span>
+        <span class="port-tag">Eigenprojekt · Kunst & Shop</span>
         <h3>braxart23.com</h3>
       </div>
-      <div class="port-bar-right">
-        <span class="port-toggle">Infos anzeigen</span>
-        <span class="port-arrow">▼</span>
-      </div>
+      <div class="port-bar-right"><span class="port-toggle">Infos anzeigen</span><span class="port-arrow">▼</span></div>
     </div>
-    <div class="port-details">
-      <div class="port-details-inner">
-        <p>braxart23.com verbindet Kreativität und kommerzielle Klarheit. Von Null aufgebaut: Konzept, Branding, Design, Code und Launch – alles in eigener Hand. Eine kohärente Markensprache durch jeden Aspekt der Website.</p>
-        <ul class="port-feats">
-          <li>Eigenständiges Branding & visuelles Konzept</li>
-          <li>Konsistente Markensprache auf allen Seiten</li>
-          <li>Verzahnung von Ästhetik und kommerziellem Ziel</li>
-          <li>Alles selbst: Konzept, Design, Code, Launch</li>
-        </ul>
-        <a href="https://braxart23.com" target="_blank" rel="noopener" class="port-visit">Website besuchen ↗</a>
-      </div>
-    </div>
+    <div class="port-details"><div class="port-details-inner">
+      <p>braxart23.com verbindet Kunst und kommerzielle Klarheit: Galerie, Ausstellungen, Auftragsarbeiten und Anfragen – Konzept, Branding, Design und Code aus einer Hand.</p>
+      <ul class="port-feats"><li>Eigenständiges Branding & visuelles Konzept</li><li>Galerie mit großformatiger Bildsprache</li><li>Zweisprachig (DE/EN)</li><li>Anfrage-Strecke für Auftragsarbeiten</li></ul>
+      <a href="https://braxart23.com" target="_blank" rel="noopener" class="port-visit">Website besuchen ↗</a>
+    </div></div>
   </div>
 
-  <!-- KOKKOS -->
-  <div class="port-card rev" id="pc-kokkos">
-    <div class="port-img" onclick="togglePort('pc-kokkos')">
-      <iframe src="https://mptrades.github.io/kokkos/" title="KÓKKOS" loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
-      <div class="port-img-overlay"></div>
-    </div>
-    <div class="port-bar" onclick="togglePort('pc-kokkos')">
+  <div class="port-card rev" id="inneryield">
+    <div class="port-img" onclick="togglePort('inneryield')"><img src="img/inneryield.jpg" alt="nuvalu" loading="lazy"></div>
+    <div class="port-bar" onclick="togglePort('inneryield')">
       <div class="port-bar-left">
-        <span class="port-tag">Kundenarbeit · Gastronomie</span>
-        <h3>KÓKKOS Café & Meze</h3>
+        <span class="port-tag">Eigenprojekt · Fintech B2B</span>
+        <h3>nuvalu</h3>
       </div>
-      <div class="port-bar-right">
-        <span class="port-toggle">Infos anzeigen</span>
-        <span class="port-arrow">▼</span>
-      </div>
+      <div class="port-bar-right"><span class="port-toggle">Infos anzeigen</span><span class="port-arrow">▼</span></div>
     </div>
-    <div class="port-details">
-      <div class="port-details-inner">
-        <p>Das KÓKKOS in Hofheim am Taunus vereint griechisches Flair, Specialty Coffee und frische Meze-Küche. Die Website musste genau diese Besonderheit ausstrahlen – Wärme und Stil, ohne in Klischees zu verfallen.</p>
-        <ul class="port-feats">
-          <li>Mehrsprachige Speisekarte mit Filterfunktion</li>
-          <li>Integrierter Online-Shop für hausgemachte Produkte</li>
-          <li>Öffnungszeiten, Anfahrt & Google Maps</li>
-          <li>Optimiert für mobile Gäste</li>
-        </ul>
-        <a href="https://mptrades.github.io/kokkos/" target="_blank" rel="noopener" class="port-visit">Website besuchen ↗</a>
-      </div>
-    </div>
+    <div class="port-details"><div class="port-details-inner">
+      <p>nuvalu ist eine B2B-Software, die Anlegern zeigt, welche Unternehmen zu ihren Werten passen. Die Website erklärt ein erklärungsbedürftiges Produkt klar und vertrauenswürdig – für Banken als Zielgruppe.</p>
+      <ul class="port-feats"><li>Produkt-Storytelling für ein komplexes B2B-Thema</li><li>Interaktive App-Vorschau im Hero</li><li>Seriöse, ruhige Bildsprache für Banken</li><li>Demo-Anfrage als zentrale Conversion</li></ul>
+      <a href="https://inneryield.de" target="_blank" rel="noopener" class="port-visit">Website besuchen ↗</a>
+    </div></div>
   </div>
 
-  <!-- FAHRPRAXIS -->
-  <div class="port-card rev" id="pc-fahrpraxis">
-    <div class="port-img" onclick="togglePort('pc-fahrpraxis')">
-      <iframe src="https://mptrades.github.io/fahrpraxiskriftel/" title="Fahrpraxis Kriftel" loading="lazy" scrolling="no" sandbox="allow-scripts allow-same-origin"></iframe>
-      <div class="port-img-overlay"></div>
-    </div>
-    <div class="port-bar" onclick="togglePort('pc-fahrpraxis')">
+  <div class="port-card rev" id="unicockpit">
+    <div class="port-img" onclick="togglePort('unicockpit')"><img src="img/unicockpit.jpg" alt="UniCockpit" loading="lazy"></div>
+    <div class="port-bar" onclick="togglePort('unicockpit')">
       <div class="port-bar-left">
-        <span class="port-tag">Kundenarbeit · Bildung</span>
-        <h3>Fahrpraxis Kriftel</h3>
+        <span class="port-tag">Eigenprojekt · App</span>
+        <h3>UniCockpit</h3>
       </div>
-      <div class="port-bar-right">
-        <span class="port-toggle">Infos anzeigen</span>
-        <span class="port-arrow">▼</span>
-      </div>
+      <div class="port-bar-right"><span class="port-toggle">Infos anzeigen</span><span class="port-arrow">▼</span></div>
     </div>
-    <div class="port-details">
-      <div class="port-details-inner">
-        <p>Die Fahrpraxis Kriftel soll sich anfühlen wie ein kleines Café – persönlich, entspannt, ohne Druck. Genau diese Philosophie musste die Website sofort transportieren.</p>
-        <ul class="port-feats">
-          <li>Alle Führerscheinklassen übersichtlich dargestellt</li>
-          <li>Online-Anmeldeformular</li>
-          <li>Transparente Preisseite</li>
-          <li>Cookie-Banner & DSGVO vollständig umgesetzt</li>
-        </ul>
-        <a href="https://mptrades.github.io/fahrpraxiskriftel/" target="_blank" rel="noopener" class="port-visit">Website besuchen ↗</a>
-      </div>
-    </div>
+    <div class="port-details"><div class="port-details-inner">
+      <p>UniCockpit ist eine Studien-App im App Store. Die Landingpage folgt bewusst dem Apple-Stil: eine klare Botschaft, ein Gerät im Mittelpunkt und ein direkter Weg zum Download.</p>
+      <ul class="port-feats"><li>Apple-typisches, reduziertes Design</li><li>Gerätevorschau als Herzstück</li><li>Direkter App-Store-Download</li><li>Schnell, leicht, mobil zuerst</li></ul>
+      <a href="https://unicockpit.de" target="_blank" rel="noopener" class="port-visit">Website besuchen ↗</a>
+    </div></div>
   </div>
 
 </div>
@@ -241,51 +198,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;padding:0 2rem;d
   <a href="kontakt.html" class="btn-f">Gespräch anfangen →</a>
 </div>
 
-<footer>
-  <div class="footer-wrap">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div>
-      <a href="index.html" style="font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#1d1d1f;text-decoration:none;display:block;margin-bottom:1rem">MP<span style="color:#0f5257">.</span>web</a>
-      <p style="color:#6e6e73;font-size:.85rem;line-height:1.75;font-weight:300">Webdesign aus dem<br>Rhein-Main-Gebiet.<br>Individuell. Sauber. Wirkungsvoll.</p>
-    </div>
-      <!-- Seiten -->
-      <div>
-      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#6e6e73;margin-bottom:1rem;font-weight:400">Seiten</p>
-      <div style="display:flex;flex-direction:column;gap:.6rem">
-        <a href="index.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Start</a>
-        <a href="leistungen.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Leistungen</a>
-        <a href="portfolio.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Portfolio</a>
-        <a href="preise.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Preise</a>
-        <a href="kontakt.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Kontakt</a>
-      </div>
-    </div>
-      <!-- Legal -->
-      <div>
-      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#6e6e73;margin-bottom:1rem;font-weight:400">Legal</p>
-      <div style="display:flex;flex-direction:column;gap:.6rem">
-        <a href="impressum.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Impressum</a>
-        <a href="datenschutz.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Datenschutz</a>
-        <a href="agb.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">AGB</a>
-      </div>
-    </div>
-      <!-- Projekte -->
-      <div>
-      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#6e6e73;margin-bottom:1rem;font-weight:400">Eigene Projekte</p>
-      <div style="display:flex;flex-direction:column;gap:.6rem">
-        <a href="https://braxart23.com" target="_blank" rel="noopener" style="color:#6e6e73;text-decoration:none;font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem;transition:color .2s" onmouseover="this.style.color='#0f5257'" onmouseout="this.style.color='#6e6e73'">braxart23.com ↗</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Max Pörtner · MP Webdesign · Kriftel</p>
-      <div style="display:flex;gap:1.5rem">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="https://billing.stripe.com/p/login/cNi9AM6b19mK1Or8jz3F600" target="_blank" rel="noopener" style="color:#6e6e73;font-size:.76rem;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Abo verwalten ↗</a>
-      </div>
-    </div>
+<footer class="ft2">
+  <div class="ft2-cta">
+    <h2>Lass uns etwas<br><span>Gutes bauen.</span></h2>
+    <a href="kontakt.html" class="btn-f">Projekt anfragen →</a>
   </div>
+  <div class="ft2-grid">
+    <div><a href="index.html" class="nav-logo brand"><span class="brand-mark"></span>Pörtner<em>Webdesign</em></a><p>Websites für Unternehmen und Selbstständige aus dem Rhein-Main-Gebiet.</p></div>
+    <div class="ft2-col"><b>Seiten</b><a href="leistungen.html">Leistungen</a><a href="portfolio.html">Portfolio</a><a href="preise.html">Preise</a><a href="kontakt.html">Kontakt</a></div>
+    <div class="ft2-col"><b>Projekte</b><a href="https://braxart23.com" target="_blank" rel="noopener">braxart23.com</a><a href="https://inneryield.de" target="_blank" rel="noopener">nuvalu</a><a href="https://unicockpit.de" target="_blank" rel="noopener">UniCockpit</a></div>
+    <div class="ft2-col"><b>Rechtliches</b><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></div>
+  </div>
+  <div class="ft2-bot"><span>© 2026 Max Pörtner · Kriftel</span><span>Gemacht mit Sorgfalt.</span></div>
 </footer>
 
 <!-- ── COOKIE BANNER ── -->

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>MP Webdesign – Websites, die wirken.</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='13' fill='%23f0f0ee' letter-spacing='-1'%3EMP%3C/text%3E%3Ccircle cx='25' cy='22' r='4' fill='%23c8f04a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f5257'/%3E%3Crect x='7' y='9' width='18' height='14' rx='3' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M7 13h18' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='22' cy='20' r='3' fill='%233fb8a8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -230,7 +230,7 @@ footer{border-top:1px solid rgba(0,0,0,.07);width:100%;box-sizing:border-box}
   .footer-grid{grid-template-columns:1fr!important}
 }
 </style>
-<link rel="stylesheet" href="theme.css?v=2">
+<link rel="stylesheet" href="theme.css?v=3">
 </head>
 <body>
 <style id="mobileFix">
@@ -429,7 +429,7 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
 </style>
 <!-- ── NAV ── -->
 <nav id="nav">
-  <a href="index.html" class="nav-logo">MP<span style="color:#0f5257">.</span>web</a>
+  <a href="index.html" class="nav-logo brand"><span class="brand-mark"></span>Pörtner<em>Webdesign</em></a>
   <div class="nav-right">
     <a href="kontakt.html" class="nav-cta">Anfragen</a>
     <button class="burger" id="burger" onclick="toggleMob()" aria-label="Menü">
@@ -564,49 +564,33 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
     <a href="portfolio.html" style="color:var(--accent);text-decoration:none;font-size:.83rem;font-weight:500">Alle ansehen →</a>
   </div>
     <div class="pg">
-
-    <!-- BRAXART -->
     <a href="portfolio.html#braxart" class="pc">
-      <div class="pc-thumb">
-        <iframe src="https://braxart23.com" title="braxart23.com" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="pc-overlay"></div>
-      </div>
+      <div class="pc-thumb"><img src="img/braxart.jpg" alt="braxart23.com" loading="lazy"></div>
       <div class="pc-info">
-        <span class="pc-tag">Eigenprojekt · Kreativ & Branding <span class="own-b">Eigenentwicklung</span></span>
+        <span class="pc-tag">Eigenprojekt · Kunst & Shop</span>
         <h3>braxart23.com</h3>
-        <p>Eigenentwickeltes Projekt – Kunst, Branding & Shop in einem.</p>
+        <p>Pop-Art-Portfolio mit Galerie, Ausstellungen und Auftragsarbeiten.</p>
         <span class="pc-arrow">Mehr erfahren →</span>
       </div>
     </a>
-
-    <!-- KÓKKOS -->
-    <a href="portfolio.html#kokkos" class="pc">
-      <div class="pc-thumb">
-        <iframe src="https://mptrades.github.io/kokkos/" title="KÓKKOS Website" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="pc-overlay"></div>
-      </div>
+    <a href="portfolio.html#inneryield" class="pc">
+      <div class="pc-thumb"><img src="img/inneryield.jpg" alt="nuvalu" loading="lazy"></div>
       <div class="pc-info">
-        <span class="pc-tag">Gastronomie · Kundenarbeit</span>
-        <h3>KÓKKOS Café & Meze</h3>
-        <p>Café in Hofheim – elegante Website für griechisches Flair mit Online-Shop.</p>
+        <span class="pc-tag">Eigenprojekt · Fintech B2B</span>
+        <h3>nuvalu</h3>
+        <p>Werte-Matching-Software für Banken, Broker und Fintechs.</p>
         <span class="pc-arrow">Mehr erfahren →</span>
       </div>
     </a>
-
-    <!-- FAHRPRAXIS -->
-    <a href="portfolio.html#fahrpraxis" class="pc">
-      <div class="pc-thumb">
-        <iframe src="https://mptrades.github.io/fahrpraxiskriftel/" title="Fahrpraxis Website" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
-        <div class="pc-overlay"></div>
-      </div>
+    <a href="portfolio.html#unicockpit" class="pc">
+      <div class="pc-thumb"><img src="img/unicockpit.jpg" alt="UniCockpit" loading="lazy"></div>
       <div class="pc-info">
-        <span class="pc-tag">Bildung · Kundenarbeit</span>
-        <h3>Fahrpraxis Kriftel</h3>
-        <p>Fahrschule mit Herz – klare Struktur, warme Ansprache.</p>
+        <span class="pc-tag">Eigenprojekt · App</span>
+        <h3>UniCockpit</h3>
+        <p>Landingpage für die Studien-App für iPhone, iPad und Mac.</p>
         <span class="pc-arrow">Mehr erfahren →</span>
       </div>
     </a>
-
   </div>
 </section>
 
@@ -620,23 +604,23 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
     <div class="lg" style="margin-bottom:3rem">
       <div class="lc"><span class="lc-n">01 —</span><span class="lc-ic">🎨</span><h3>Neue Website</h3><p>Maßgeschneidert, modern und auf deine Marke abgestimmt – von Konzept bis Launch.</p></div>
       <div class="lc"><span class="lc-n">02 —</span><span class="lc-ic">🔄</span><h3>Übernahme & Redesign</h3><p>Bestehende Website übernehmen, verbessern und langfristig betreuen.</p></div>
-      <div class="lc"><span class="lc-n">03 —</span><span class="lc-ic">⚡</span><h3>Wartung & Pflege</h3><p>Alle Änderungen, Updates & Pflege für pauschal € 35/Monat.</p></div>
+      <div class="lc"><span class="lc-n">03 —</span><span class="lc-ic">⚡</span><h3>Wartung & Pflege</h3><p>Alle Änderungen, Updates & Pflege zum monatlichen Pauschalpreis.</p></div>
     </div>
     <a href="leistungen.html" class="btn-f">Alle Leistungen & Preise →</a>
   </div>
 </div>
 
 <!-- ── PREISE ── -->
-<section class="sec rev" style="border-bottom:1px solid var(--b)">
+<section class="sec rev quote-sec">
   <div class="eye"><span>Preise</span></div>
-  <h2 class="sh2">Klar.<br><span>Transparent.</span></h2>
-  <div class="pc2">
-    <div class="pcard"><span class="pl">Website · Einmalig</span><p class="pa">€ 200</p><p class="ps">Fertige Website, komplett entwickelt</p></div>
-    <div class="pcard hi"><span class="pl">Wartung · Pro Monat</span><p class="pa">€ 35</p><p class="ps">Alle Änderungen & Pflege inklusive</p></div>
+  <h2 class="sh2">Individuell.<br><span>Auf Anfrage.</span></h2>
+  <p class="lead">Jedes Projekt ist anders – deshalb gibt es keine Preisliste von der Stange. Du erzählst mir, was du brauchst, und bekommst innerhalb von 24 Stunden ein faires, unverbindliches Angebot.</p>
+  <div class="pkg">
+    <div class="pkg-c"><h3>Neue Website</h3><p>Konzept, Design und Umsetzung – maßgeschneidert für deine Marke.</p><span>Preis auf Anfrage</span></div>
+    <div class="pkg-c"><h3>Redesign</h3><p>Bestehende Seite übernehmen, modernisieren und schneller machen.</p><span>Preis auf Anfrage</span></div>
+    <div class="pkg-c"><h3>Wartung & Pflege</h3><p>Änderungen, Updates und Backups – monatlich pauschal.</p><span>Preis auf Anfrage</span></div>
   </div>
-  <p style="color:var(--muted);font-size:.85rem;font-weight:300">Keine versteckten Kosten. →
-    <a href="leistungen.html" style="color:var(--accent);text-decoration:none;font-weight:500">Alle Details ansehen</a>
-  </p>
+  <a href="kontakt.html" class="btn-f">Unverbindlich anfragen →</a>
 </section>
 
 <!-- ── QUOTE ── -->
@@ -645,50 +629,18 @@ nav { position: fixed !important; top: 0 !important; left: 0 !important;
 </div>
 
 <!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-wrap">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div>
-      <a href="index.html" style="font-family:'Inter',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.03em;color:#1d1d1f;text-decoration:none;display:block;margin-bottom:1rem">MP<span style="color:#0f5257">.</span>web</a>
-      <p style="color:#6e6e73;font-size:.85rem;line-height:1.75;font-weight:300">Webdesign aus dem<br>Rhein-Main-Gebiet.<br>Individuell. Sauber. Wirkungsvoll.</p>
-    </div>
-      <!-- Seiten -->
-      <div>
-      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#6e6e73;margin-bottom:1rem;font-weight:400">Seiten</p>
-      <div style="display:flex;flex-direction:column;gap:.6rem">
-        <a href="index.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Start</a>
-        <a href="leistungen.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Leistungen</a>
-        <a href="portfolio.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Portfolio</a>
-        <a href="preise.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Preise</a>
-        <a href="kontakt.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Kontakt</a>
-      </div>
-    </div>
-      <!-- Legal -->
-      <div>
-      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#6e6e73;margin-bottom:1rem;font-weight:400">Legal</p>
-      <div style="display:flex;flex-direction:column;gap:.6rem">
-        <a href="impressum.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Impressum</a>
-        <a href="datenschutz.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">Datenschutz</a>
-        <a href="agb.html" style="color:#6e6e73;text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s" onmouseover="this.style.color='#1d1d1f'" onmouseout="this.style.color='#6e6e73'">AGB</a>
-      </div>
-    </div>
-      <!-- Projekte -->
-      <div>
-      <p style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:#6e6e73;margin-bottom:1rem;font-weight:400">Eigene Projekte</p>
-      <div style="display:flex;flex-direction:column;gap:.6rem">
-        <a href="https://braxart23.com" target="_blank" rel="noopener" style="color:#6e6e73;text-decoration:none;font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem;transition:color .2s" onmouseover="this.style.color='#0f5257'" onmouseout="this.style.color='#6e6e73'">braxart23.com ↗</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Max Pörtner · MP Webdesign · Kriftel</p>
-      <div style="display:flex;gap:1.5rem">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-      </div>
-    </div>
+<footer class="ft2">
+  <div class="ft2-cta">
+    <h2>Lass uns etwas<br><span>Gutes bauen.</span></h2>
+    <a href="kontakt.html" class="btn-f">Projekt anfragen →</a>
   </div>
+  <div class="ft2-grid">
+    <div><a href="index.html" class="nav-logo brand"><span class="brand-mark"></span>Pörtner<em>Webdesign</em></a><p>Websites für Unternehmen und Selbstständige aus dem Rhein-Main-Gebiet.</p></div>
+    <div class="ft2-col"><b>Seiten</b><a href="leistungen.html">Leistungen</a><a href="portfolio.html">Portfolio</a><a href="preise.html">Preise</a><a href="kontakt.html">Kontakt</a></div>
+    <div class="ft2-col"><b>Projekte</b><a href="https://braxart23.com" target="_blank" rel="noopener">braxart23.com</a><a href="https://inneryield.de" target="_blank" rel="noopener">nuvalu</a><a href="https://unicockpit.de" target="_blank" rel="noopener">UniCockpit</a></div>
+    <div class="ft2-col"><b>Rechtliches</b><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></div>
+  </div>
+  <div class="ft2-bot"><span>© 2026 Max Pörtner · Kriftel</span><span>Gemacht mit Sorgfalt.</span></div>
 </footer>
 
 <script>
